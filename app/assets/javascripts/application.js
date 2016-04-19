@@ -14,4 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+$(document).ready(function() {
+  /**
+	*	DateTimePicker
+	*/
+	$('.form_datetime, .date-picker').datetimepicker({
+		format: 'DD/MM/YYYY',
+		showTodayButton: true,
+		showClear: true
+	});
+
+	$('.datetime-picker').datetimepicker({
+		format: 'DD/MM/YYYY HH:mm',
+		showTodayButton: true,
+		showClear: true
+	});
+
+	$('.time-picker').datetimepicker({
+		format: 'HH:mm',
+		showTodayButton: true,
+		showClear: true
+	});
+})

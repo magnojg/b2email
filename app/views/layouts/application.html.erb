@@ -2,19 +2,26 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "B2email" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "b2email" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "B2email" %>">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
+    <div id="wrapper">
+      <%= render 'layouts/top_bar' %>
       <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+      <div id="content">
+      	<div class="container">
+      		<div class="row">
+            <%= render 'layouts/messages' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

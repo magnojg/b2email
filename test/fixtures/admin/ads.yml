@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: 
+  title: MyText
+  subtitle: MyText
+  url: MyText
+  admin_ad_bar_id: 
+
+two:
+  image: 
+  title: MyText
+  subtitle: MyText
+  url: MyText
+  admin_ad_bar_id: 
