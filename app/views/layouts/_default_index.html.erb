@@ -1,0 +1,61 @@
+<div id="masthead">
+  <div class="container-fluid">
+    <div class="masthead-pad">
+      <div class="masthead-text">
+        <h2><%= t('models.'+ controller_name) %></h2>
+        <p><%= breadcrumbs(" &raquo; ") %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="content">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+
+        <div class="buttons">
+          <% options = {:new => true} unless local_assigns.has_key?(:options) %>
+          <% # if local_assigns.has_key?(:class_name) && can?(:create, class_name) && options[:new] %>
+            <%= link_to new_polymorphic_path(class_name), :class => 'btn btn-primary' do %>
+              <i class="icon-plus-sign icon-white"></i>Adicionar
+            <% end %>
+          <% # end %>
+          <a id="btn-filter" href="javascript:;" class="btn btn-filter" data-toggle="button">
+            <i class="icon-filter"></i>Filtrar
+          </a>
+        </div>
+
+        <div class="block-list">
+          <%= content_for :index %>
+          <div class="block-list-footer">
+            <%= paginate collection if local_assigns.has_key? :collection %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :scripts do %>
+    <%= javascript_include_tag "plugins/bootstrap-datetimepicker.min", "plugins/bootstrap-datetimepicker.pt-BR" %>
+<% end %>
+
+<% js_jquery_ready(capture do %>
+    <script>
+        $(".datetime")
+            .append('<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar"></i></span>')
+            .datetimepicker({
+                format: "dd/MM/yyyy",
+                language: "pt-BR"
+            });
+
+        /*
+        *  Selects personalizados
+        */
+        // $('.select2-min2').select2({
+        //     minimumInputLength: 2
+        // });
+        //
+        // $('.select2').select2();
+      </script>
+<% end) %>

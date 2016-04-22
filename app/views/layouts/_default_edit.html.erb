@@ -1,0 +1,33 @@
+<div id="masthead">
+  <div class="container-fluid">
+    <div class="masthead-pad">
+      <div class="masthead-text">
+        <h2><%=t 'models.' + controller_name %></h2>
+        <p><%= breadcrumbs(" &raquo; ") %> &raquo; <strong><%=t action_name %></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+<section id="content">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+
+        <div class="buttons">
+          <%= link_to polymorphic_path(object.class), :class => 'btn' do %>
+          <i class="icon-circle-arrow-left"></i>Voltar à listagem
+          <% end %>
+        </div>
+        <%= form_for object, url: polymorphic_path(object), method: :put, :html => { :class => 'form-horizontal' } do |f| %>
+
+          <%= render :partial => 'form', locals: { f: f } %>
+
+          <div class="form-actions">
+            <%= f.submit "Salvar", :class => 'btn btn-primary' %>
+            <%= link_to "Cancelar", polymorphic_path(object.class), :class => 'btn' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

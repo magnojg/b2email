@@ -1,27 +1,38 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+  <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-BR"> <![endif]-->
+  <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-BR"> <![endif]-->
+  <!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-BR"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js" lang="pt-BR"> <!--<![endif]-->
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title><%= content_for?(:title) ? yield(:title) : "b2email" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "B2email" %>">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag :modernizr %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <%= javascript_include_tag "libs/modernizr-2.5.3.min" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "libs/jquery-ui-1.10.3.custom.min" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class ="<%= controller_name %>-<%= action_name %>">
     <div id="wrapper">
-      <%= render 'layouts/top_bar' %>
-      <%= render 'layouts/navigation' %>
-      <div id="content">
-      	<div class="container">
-      		<div class="row">
-            <%= render 'layouts/messages' %>
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= render :partial => "layouts/header" if user_signed_in? %>
+      <%= yield %>
+    </div><!-- end #wrapper -->
+    <%= render :partial => "layouts/footer" %>
+
+    <%= javascript_include_tag "plugins/bootstrap-datetimepicker.min" %>
+    <%= javascript_include_tag "plugins/bootstrap-datetimepicker.pt-BR" %>
+    <%= javascript_include_tag "plugins/bootstrap-file-input" %>
+    <%= yield(:scripts) %>
+    <script>
+        $(document).ready(function(){
+            Theme.init();
+            <%= yield(:js_jquery_ready) %>
+        });
+        <%= yield(:js) %>
+    </script>
   </body>
 </html>

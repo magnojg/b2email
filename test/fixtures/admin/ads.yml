@@ -5,11 +5,11 @@ one:
   title: MyText
   subtitle: MyText
   url: MyText
-  admin_ad_bar_id: 
+  ad_bar_id: 
 
 two:
   image: 
   title: MyText
   subtitle: MyText
   url: MyText
-  admin_ad_bar_id: 
+  ad_bar_id: 

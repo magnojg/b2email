@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   get 'admin' => 'admin#home'
 
-  namespace :admin do
-    resources :companies
-    resources :campaigns
-    resources :ad_bars
-    resources :ads
-  end
+  resources :companies
+  resources :campaigns
+  resources :ad_bars
+  resources :ads
 
   root :to => "companies#index"
 

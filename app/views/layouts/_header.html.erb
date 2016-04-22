@@ -1,0 +1,25 @@
+<header id="header">
+    <div class="container-fluid">
+        <%= link_to "Home", root_path, :class => "brand" %>
+
+        <a href="javascript:void(0);" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <i class="icon-reorder"></i>Menu
+        </a>
+
+        <ul id="header-user" class="pull-right">
+            <li>
+                <a href="javascript:;">
+
+                    <i class="icon-user icon-white"></i>
+                    Olá <%= current_user.email %>
+                </a>
+            </li>
+            <li><%= link_to "Sair", :destroy_user_session, :method=>'delete' %></li>
+        </ul>
+
+        <nav class="nav-collapse">
+            <%= render_navigation :expand_all => true, :renderer => :bootstrap %>
+        </nav>
+
+    </div><!-- end .container-fluid -->
+</header><!-- end #header-->

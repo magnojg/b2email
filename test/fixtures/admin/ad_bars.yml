@@ -2,8 +2,8 @@
 
 one:
   position: 1
-  admin_campaign_id: 
+  campaign_id: 
 
 two:
   position: 1
-  admin_campaign_id: 
+  campaign_id: 

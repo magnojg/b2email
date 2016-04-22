@@ -1,0 +1,12 @@
+<%= simple_form_for @ad_bar, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :position, :collection => AdBar.positiones.sort %>
+
+  <div class="form-group select optional ad_bar_campaign_id">
+    <label class="select optional control-label" for="ad_bar_campaign_id">Campaign</label>
+    <%= select_tag("ad_bar[campaign_id]", options_for_select(@campaigns, :selected => params[:campaign_id]), {  class: 'form-control' }) %>
+  </div>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ad_bars_path, :class => 'btn btn-default' %>
+<% end %>

@@ -1,0 +1,36 @@
+<%- model_class = Company -%>
+<% content_for :index do %>
+    <table class="footable table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:id) %></th>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:trading_name) %></th>
+        <th><%= model_class.human_attribute_name(:registration_number) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th class="tcenter th-action"><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @companies.each do |company| %>
+          <tr>
+            <td><%= link_to company.id, company_path(company) %></td>
+            <td><%= company.name %></td>
+            <td><%= company.trading_name %></td>
+            <td><%= company.registration_number %></td>
+            <td><%= show_datetime(company.created_at) %></td>
+            <td class="tcenter td-action btn-group">
+              <%= actions_to_index(company) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+
+<%= render  :partial => 'layouts/default_index',
+            :locals => {
+              :collection => @companies,
+              :class_name => Company
+            }
+-%>

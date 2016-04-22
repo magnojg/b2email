@@ -5,38 +5,74 @@
 // or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
+// the compiled file.
 //
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap-sprockets
-//= require moment
-//= require bootstrap-datetimepicker
-//= require_tree .
+//= require libs/bootstrap
+//= require_directory .
+//= require jquery.nested-fields
 
-$(document).ready(function() {
-  /**
-	*	DateTimePicker
-	*/
-	$('.form_datetime, .date-picker').datetimepicker({
-		format: 'DD/MM/YYYY',
-		showTodayButton: true,
-		showClear: true
-	});
+$(function() {
+    $('.bootstrap-datetimepicker-widget').css('z-index','9999')
 
-	$('.datetime-picker').datetimepicker({
-		format: 'DD/MM/YYYY HH:mm',
-		showTodayButton: true,
-		showClear: true
-	});
+    //Input file wrapper
+    inputfilewrapper($('input[type=file]'));
 
-	$('.time-picker').datetimepicker({
-		format: 'HH:mm',
-		showTodayButton: true,
-		showClear: true
-	});
-})
+    //Nested field para attachments em lessons form
+    $('.nested-attachment').nestedFields({
+      containerSelector: '.attachments-items',
+      itemSelector: '.attachment-item',
+      afterInsert: function(item){
+        inputfilewrapper(item.find("input[type='file']"));
+        loadAttachmentTagField(item);
+        loadAttachmentPosition(item);
+        item.find('.more').on('click', function(){
+          $(this).toggleClass('active');
+          $(this).parents('.list-type-table-item').find('.list-line-more').stop().slideToggle();
+          if($(this).hasClass('active')){
+            $(this).children('i').attr('class', 'icon-chevron-up');
+          }else{
+            $(this).children('i').attr('class', 'icon-chevron-down');
+          }
+        });
+      }
+    });
+
+    // remove all masked money
+    // $('form').submit(function(){
+    //     $('.money').maskMoney('destroy');
+    // });
+
+    $('.clear-calendar').click(function(){
+      $(this).parent().children('.datetime_select').val('');
+    });
+
+    $('.datetime_select').addClass('input-medium');
+
+    /*
+     * Quando for página inicial, remove classe de icone na cor branco
+     */
+     $('#root_menu.active').find('.icon-home').removeClass('icon-white');
+
+     $("form").nestedFields();
+
+     $(".select-all").on("click", function(){
+      $(".check").attr("checked", $(this).is(":checked"));
+    });
+});
+
+function addCalendar(){
+  $('.datetime')
+  .append('<span class="add-on"><i class="icon-calendar"></i></span>')
+  .datetimepicker({
+    format: "dd/MM/yyyy hh:mm",
+    language: "pt-BR"
+  })
+  .append('<span class="add-on clear-calendar"><i class="icon-remove"></i></span>')
+  .removeClass('datetime')
+  .addClass('load-datetime');
+}

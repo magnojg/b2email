@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class Admin::AdsControllerTest < ActionController::TestCase
+class AdsControllerTest < ActionController::TestCase
   setup do
-    @admin_ad = admin_ads(:one)
+    @ad = ads(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:admin_ads)
+    assert_not_nil assigns(:ads)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class Admin::AdsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create admin_ad" do
-    assert_difference('Admin::Ad.count') do
-      post :create, admin_ad: { admin_ad_bar_id: @admin_ad.admin_ad_bar_id, image: @admin_ad.image, subtitle: @admin_ad.subtitle, title: @admin_ad.title, url: @admin_ad.url }
+  test "should create ad" do
+    assert_difference('Ad.count') do
+      post :create, ad: { ad_bar_id: @ad.ad_bar_id, image: @ad.image, subtitle: @ad.subtitle, title: @ad.title, url: @ad.url }
     end
 
-    assert_redirected_to admin_ad_path(assigns(:admin_ad))
+    assert_redirected_to ad_path(assigns(:ad))
   end
 
-  test "should show admin_ad" do
-    get :show, id: @admin_ad
+  test "should show ad" do
+    get :show, id: @ad
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @admin_ad
+    get :edit, id: @ad
     assert_response :success
   end
 
-  test "should update admin_ad" do
-    patch :update, id: @admin_ad, admin_ad: { admin_ad_bar_id: @admin_ad.admin_ad_bar_id, image: @admin_ad.image, subtitle: @admin_ad.subtitle, title: @admin_ad.title, url: @admin_ad.url }
-    assert_redirected_to admin_ad_path(assigns(:admin_ad))
+  test "should update ad" do
+    patch :update, id: @ad, ad: { ad_bar_id: @ad.ad_bar_id, image: @ad.image, subtitle: @ad.subtitle, title: @ad.title, url: @ad.url }
+    assert_redirected_to ad_path(assigns(:ad))
   end
 
-  test "should destroy admin_ad" do
-    assert_difference('Admin::Ad.count', -1) do
-      delete :destroy, id: @admin_ad
+  test "should destroy ad" do
+    assert_difference('Ad.count', -1) do
+      delete :destroy, id: @ad
     end
 
-    assert_redirected_to admin_ads_path
+    assert_redirected_to ads_path
   end
 end
