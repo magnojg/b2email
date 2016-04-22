@@ -1,0 +1,10 @@
+<%% content_for :show do %>
+<% attributes.each do |attribute| -%>
+    <dl class="control-group">
+        <dt><strong><%= attribute.human_name %>:</strong></dt>
+        <dd><%%= @<%= singular_table_name %>.<%= attribute.name %> %></dd>
+    </dl>
+<% end -%>
+<%% end %>
+
+<%%= render :partial => 'layouts/default_show', :locals  => { :object => @<%= singular_table_name %> } -%>
