@@ -1,36 +1,31 @@
-<%= simple_form_for @campaign, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-
-  <div class="form-group datetime optional campaign_start_at">
-    <label class="datetime optional control-label" for="campaign_start_at">Start at</label>
-    <div class="form-inline">
-      <div class="input-group">
-				<input type="text" name="campaign[start_at]" class="form-control date-picker">
-				<span class="input-group-btn calendar-span">
-					<button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-				</span>
-			</div>
+<div class="form-fields">
+  <div class="control-group">
+    <%= f.label :title, :class => "control-label required col-sm-6" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+      <%= errors_for(@campaign, :title) %>
     </div>
   </div>
-
-  <div class="form-group datetime optional campaign_start_at">
-    <label class="datetime optional control-label" for="campaign_end_at">End at</label>
-    <div class="form-inline">
-      <div class="input-group">
-				<input type="text" name="campaign[end_at]" class="form-control date-picker">
-				<span class="input-group-btn calendar-span">
-					<button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-				</span>
-			</div>
+  <div class="control-group">
+    <%= f.label :period, :class => 'control-label' %>
+    <div class="controls control-row">
+      <span class="datetime input-append">
+        <%= f.text_field :start_at, :class => 'datetime_select datetime-start', :value => format_datetime(f, :start_at) %>
+      </span>
+      &nbsp;to&nbsp;
+      <span class="datetime input-append">
+        <%= f.text_field :end_at, :class => 'datetime_select datetime-end', :value => format_datetime(f, :end_at) %>
+      </span>
     </div>
   </div>
-
-  <div class="form-group integer optional campaign_company_id">
-    <label class="integer optional control-label" for="campaign_company_id">Company</label>
-    <%= select_tag("campaign[company_id]", options_for_select(@companies, :selected => params[:company_id]), {  class: 'form-control' }) %>
+  <div class="control-group">
+    <%= f.label :company_id, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :company_id, @companies, :class => 'text_field' %>
+    </div>
   </div>
+</div>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                campaigns_path, :class => 'btn btn-default' %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag "plugins/validate/jquery.validate", "plugins/validate/jquery.validate.pt-br" %>
 <% end %>

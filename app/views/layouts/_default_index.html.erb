@@ -15,14 +15,14 @@
 
         <div class="buttons">
           <% options = {:new => true} unless local_assigns.has_key?(:options) %>
-          <% # if local_assigns.has_key?(:class_name) && can?(:create, class_name) && options[:new] %>
+          <% if local_assigns.has_key?(:class_name) && options[:new] %>
             <%= link_to new_polymorphic_path(class_name), :class => 'btn btn-primary' do %>
               <i class="icon-plus-sign icon-white"></i>Adicionar
             <% end %>
-          <% # end %>
-          <a id="btn-filter" href="javascript:;" class="btn btn-filter" data-toggle="button">
+          <% end %>
+          <!-- <a id="btn-filter" href="javascript:;" class="btn btn-filter" data-toggle="button">
             <i class="icon-filter"></i>Filtrar
-          </a>
+          </a> -->
         </div>
 
         <div class="block-list">

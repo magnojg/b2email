@@ -83,4 +83,13 @@ module ApplicationHelper
     !(defined?(value) && value.is_a?(FalseClass))
   end
 
+  # format datetime to value attribute into html tag type="input"
+  def format_datetime(f, attr_name)
+    if f.object
+      unless f.object.send(attr_name).blank?
+        f.object.send(attr_name).strftime("%d/%m/%Y %H:%M")
+      end
+    end
+  end
+
 end

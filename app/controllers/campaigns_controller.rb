@@ -2,10 +2,12 @@ class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
   before_action :set_companies
 
+  add_breadcrumb "Campaign", :campaigns_path
+
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.all.page params[:page]
   end
 
   # GET /campaigns/1

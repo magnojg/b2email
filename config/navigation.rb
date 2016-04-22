@@ -9,6 +9,8 @@ SimpleNavigation::Configuration.run do |navigation|
     # home
     primary.item :root_menu, raw('<i class="icon-home icon-white"></i>'), companies_path
     primary.item :campaigns_menu, 'Campaigns', campaigns_path
+    primary.item :ad_bars_menu, 'Ad Bars', ad_bars_path
+    primary.item :ads_menu, 'Ads', ads_path
 
     #Workflow
     # primary.item :workflow_menu, "Workflow", nil do |sub_nav|

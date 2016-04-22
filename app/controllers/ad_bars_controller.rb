@@ -2,10 +2,12 @@ class AdBarsController < ApplicationController
   before_action :set_ad_bar, only: [:show, :edit, :update, :destroy]
   before_action :set_campaigns
 
+  add_breadcrumb "Ad Bars", :ad_bars_path
+
   # GET /ad_bars
   # GET /ad_bars.json
   def index
-    @ad_bars = AdBar.all
+    @ad_bars = AdBar.all.page(params[:page])
   end
 
   # GET /ad_bars/1
