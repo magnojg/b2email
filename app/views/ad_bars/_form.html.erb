@@ -56,17 +56,15 @@
   </div>
 </div>
 
-<% if params[:action] != "new" %>
-  <script>
 
-    item = $('.first-items');
+<script>
+  item = $('.first-items');
 
-    $('.nested-first').nestedFields({
-      containerSelector: '.first-items',
-      itemSelector: '.first-item',
-      afterInsert: function(item){
-        inputfilewrapper(item.find('input[type=file]'));
-      }
-    });
-  </script>
-<% end %>
+  $('.nested-first').nestedFields({
+    containerSelector: '.first-items',
+    itemSelector: '.first-item',
+    afterInsert: function(item){
+      inputfilewrapper(item.find('input[type=file]'));
+    }
+  });
+</script>
