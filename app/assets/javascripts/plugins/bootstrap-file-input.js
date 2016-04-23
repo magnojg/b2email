@@ -20,7 +20,7 @@ function inputfilewrapper(item) {
   }
 
   // Set the word to be displayed on the button
-  var buttonWord = 'Selecionar Arquivo';
+  var buttonWord = 'Select File';
 
   if (typeof $(this).attr('title') != 'undefined') {
     buttonWord = $(this).attr('title');
