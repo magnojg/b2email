@@ -1,6 +1,5 @@
 class Ad < ActiveRecord::Base
   belongs_to :ad_bar
-  has_one :campaign, :through => :ad_bar
   has_one :company, :through => :ad_bar
 
   has_attached_file :image,
@@ -24,6 +23,6 @@ class Ad < ActiveRecord::Base
   end
 
   Paperclip.interpolates :campaign_folder do |attachment, style|
-    "CAMP#{attachment.instance.campaign.id}"
+    "CAMP#{attachment.instance.ad_bar.campaign_id}"
   end
 end
