@@ -8,7 +8,7 @@
 
 Project:		Dashboard
 Version:		1.0
-Last change:	10/10/2012	
+Last change:	10/10/2012
 
 
 -------------------------------------------------------------------*/
@@ -32,7 +32,7 @@ Last change:	10/10/2012
 .fc-event.fc-event-hori.fc-event-start.fc-event-end.recording {
 	border-color: red;
 }
-	
+
 .fc-event.fc-event-hori.fc-event-start.fc-event-end.postponed {
 	border-color: yellow;
 }
@@ -8409,7 +8409,7 @@ disabled look for disabled choices in the results dropdown
  * Compatible with select2 3.3.2 and bootstrap 2.3.1
  * MIT License
  */
- 
+
 .select2-container {
   vertical-align: middle;
 }
@@ -8486,10 +8486,10 @@ disabled look for disabled choices in the results dropdown
 }
 
 /**
- * This stops the quick flash when a native selectbox is shown and 
- * then replaced by a select2 input when javascript kicks in. This can be 
- * removed if javascript is not present 
- */  
+ * This stops the quick flash when a native selectbox is shown and
+ * then replaced by a select2 input when javascript kicks in. This can be
+ * removed if javascript is not present
+ */
 select.select2 {
   height: 28px;
   visibility: hidden;
@@ -10745,11 +10745,6 @@ Layout: Footer
     text-align: right;
 }
 
-/*------------------------------------------------------------------
-
-Layout CERS
-
-------------------------------------------------------------------- */
 .buttons{
     margin-bottom: 10px;
 }
@@ -11854,7 +11849,7 @@ Layout: Responsive
 .bootstrap-datetimepicker-widget{
     z-index: 9999;
 }
-/*! X-editable - v1.4.3 
+/*! X-editable - v1.4.3
 * In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery
 * http://github.com/vitalets/x-editable
 * Copyright (c) 2013 Vitaliy Potapov; Licensed MIT */
@@ -11875,41 +11870,41 @@ Layout: Responsive
    vertical-align: top;
    margin-left: 7px;
    /* inline-block emulation for IE7*/
-   zoom: 1; 
+   zoom: 1;
    *display: inline;
 }
 
 
 
 .editable-input {
-    vertical-align: top; 
+    vertical-align: top;
     display: inline-block; /* should be inline to take effect of parent's white-space: nowrap */
     width: auto; /* bootstrap-responsive has width: 100% that breakes layout */
     white-space: normal; /* reset white-space decalred in parent*/
    /* display-inline emulation for IE7*/
-   zoom: 1; 
-   *display: inline;   
+   zoom: 1;
+   *display: inline;
 }
 
 .editable-buttons .editable-cancel {
-   margin-left: 7px; 
+   margin-left: 7px;
 }
 
 /*for jquery-ui buttons need set height to look more pretty*/
 .editable-buttons button.ui-button-icon-only {
-   height: 24px; 
+   height: 24px;
    width: 30px;
 }
 
 .editableform-loading {
-    background: url('loading.gif') center center no-repeat;  
+    background: url('loading.gif') center center no-repeat;
     height: 25px;
-    width: auto; 
-    min-width: 25px; 
+    width: auto;
+    min-width: 25px;
 }
 
 .editable-inline .editableform-loading {
-    background-position: left 5px;      
+    background-position: left 5px;
 }
 
  .editable-error-block {
@@ -11921,35 +11916,35 @@ Layout: Responsive
 
 /*add padding for jquery ui*/
 .editable-error-block.ui-state-error {
-    padding: 3px;  
-}  
+    padding: 3px;
+}
 
 .editable-error {
-   color: red;  
+   color: red;
 }
 
 .editableform .editable-date {
-    padding: 0; 
+    padding: 0;
     margin: 0;
     float: left;
 }
 
 
 /* checklist vertical alignment */
-.editable-checklist label input[type="checkbox"], 
+.editable-checklist label input[type="checkbox"],
 .editable-checklist label span {
     vertical-align: middle;
     margin: 0;
 }
 
 .editable-checklist label {
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 /* set exact width of textarea to fit buttons toolbar */
 .editable-wysihtml5 {
-    width: 566px; 
-    height: 250px; 
+    width: 566px;
+    height: 250px;
 }
 
 /* clear button shown as link in date inputs */
@@ -11964,7 +11959,7 @@ Layout: Responsive
 .editable-clear-x {
    background: url('clear.png') center center no-repeat;
    display: block;
-   width: 13px;    
+   width: 13px;
    height: 13px;
    position: absolute;
    opacity: 0.6;
@@ -11977,7 +11972,7 @@ Layout: Responsive
 }
 .editable-container {
     max-width: none !important; /* without this rule poshytip/tooltip does not stretch */
-}  
+}
 
 .editable-container.popover {
 /*   width: 300px;*/  /* debug */
@@ -11985,41 +11980,41 @@ Layout: Responsive
 }
 
 .editable-container.editable-inline {
-    display: inline-block; 
+    display: inline-block;
     vertical-align: middle;
     width: auto;
     /* inline-block emulation for IE7*/
-    zoom: 1; 
-    *display: inline;    
+    zoom: 1;
+    *display: inline;
 }
 
 .editable-container.ui-widget {
    font-size: inherit;  /* jqueryui widget font 1.1em too big, overwrite it */
 }
-.editable-click, 
-a.editable-click, 
+.editable-click,
+a.editable-click,
 a.editable-click:hover {
     text-decoration: none;
     border-bottom: dashed 1px #0088cc;
 }
 
-.editable-click.editable-disabled, 
-a.editable-click.editable-disabled, 
+.editable-click.editable-disabled,
+a.editable-click.editable-disabled,
 a.editable-click.editable-disabled:hover {
-   color: #585858;  
+   color: #585858;
    cursor: default;
    border-bottom: none;
 }
 
 .editable-empty, .editable-empty:hover{
-  font-style: italic; 
-  color: #DD1144;  
+  font-style: italic;
+  color: #DD1144;
   border-bottom: none;
   text-decoration: none;
 }
 
 .editable-unsaved {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .editable-unsaved:after {
@@ -12028,7 +12023,7 @@ a.editable-click.editable-disabled:hover {
 
 /*see https://github.com/vitalets/x-editable/issues/139 */
 .form-horizontal .editable
-{ 
+{
     padding-top: 5px;
     display:inline-block;
 }
