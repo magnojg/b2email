@@ -22,9 +22,7 @@ class AdBarsController < ApplicationController
 
   # GET /ad_bars/1/edit
   def edit
-    4.times do
-      @ad_bar.ads.build
-    end
+    @ad_bar.ads.build
   end
 
   # POST /ad_bars
