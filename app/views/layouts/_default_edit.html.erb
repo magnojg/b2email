@@ -18,7 +18,7 @@
           <i class="icon-circle-arrow-left"></i>Voltar à listagem
           <% end %>
         </div>
-        <%= form_for object, url: polymorphic_path(object), method: :put, :html => { :class => 'form-horizontal' } do |f| %>
+        <%= form_for object, url: polymorphic_path(object), method: :put, :html => { class: 'form-horizontal', multipart: true } do |f| %>
 
           <%= render :partial => 'form', locals: { f: f } %>
 
