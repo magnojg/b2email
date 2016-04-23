@@ -1,0 +1,393 @@
+/* ------------------------------------
+  CSS Desenvolvido pelo
+  CERS | www.cers.com.br
+  Author: Letícia Matos | leticiamatos.com
+------------------------------------ */ 
+
+
+/* =============================================================================
+   Variables
+========================================================================== */
+
+  /* Colors */
+  @cC:#1D354D;
+  @cC2:#4A6989;
+  @cC3:#4A6989;
+  @cC4:#CFD9DE;
+  @cGreen:#92B766;
+  @cGreen2:#D2DFAF;
+  @cTest:rgba(0,255,0,0.5);  
+  
+  /* Measures */
+  @width:900px;
+  .width_center{
+    width: @width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/* =============================================================================
+   General
+========================================================================== */
+.radius (@radius: 2px){
+  border-radius:@radius !important;
+  -moz-border-radius:@radius !important;
+  -webkit-border-radius:@radius !important;
+  -o-border-radius:@radius !important;
+  -ms-border-radius:@radius !important;
+}
+.shadow (@shadow: 3px 3px 2px rgba(0,0,0,0.3)){
+  box-shadow:@shadow !important;
+  -moz-box-shadow:@shadow !important;
+  -webkit-box-shadow:@shadow !important;
+  -o-box-shadow:@shadow !important;
+  -ms-box-shadow:@shadow !important;
+}
+.textShadow (@textShadow: 0px 1px 0px #000000){
+  text-shadow:@textShadow;
+  -moz-text-shadow:@textShadow;
+  -webkit-text-shadow:@textShadow;
+  -o-text-shadow:@textShadow;
+  -ms-text-shadow:@textShadow;
+}
+.transition (@transiton:0.6s){
+  transition:@transiton;
+  -moz-transition:@transiton;
+  -webkit-transition:@transiton;
+  -o-transition:@transiton;
+  -ms-transition:@transiton;
+}
+.rotation (@rotation:0.2s){
+  transform:rotate(valuedeg);
+  -moz-transform:rotate(valuedeg);
+  -webkit-transform:rotate(valuedeg);
+  -o-transform:rotate(valuedeg);
+  -ms-transform:rotate(valuedeg);
+}
+.noRadius (@radius: 0){
+  border-radius:@radius !important;
+  -moz-border-radius:@radius !important;
+  -webkit-border-radius:@radius !important;
+  -o-border-radius:@radius !important;
+  -ms-border-radius:@radius !important;
+}
+.noShadow (@shadow:none){
+  box-shadow:@shadow !important;
+  -moz-box-shadow:@shadow !important;
+  -webkit-box-shadow:@shadow !important;
+  -o-box-shadow:@shadow !important;
+  -ms-box-shadow:@shadow !important;
+}
+.noTextShadow (@textShadow: none){
+  text-shadow:@textShadow;
+  -moz-text-shadow:@textShadow;
+  -webkit-text-shadow:@textShadow;
+  -o-text-shadow:@textShadow;
+  -ms-text-shadow:@textShadow;
+}
+.noTransition (@transiton:none){
+  transition:@transiton;
+  -moz-transition:@transiton;
+  -webkit-transition:@transiton;
+  -o-transition:@transiton;
+  -ms-transition:@transiton;
+}
+.noOpacity{
+  opacity: 1 !important;
+}
+
+.clear{
+  display: block; 
+  clear: both;
+}
+
+
+// Workflow Calendar
+/* Default old style */
+.classname{
+  table {
+  border: 1px solid #999;
+  border-collapse: collapse;
+  font-family: Georgia, Times, serif;
+  }
+  th {
+  border: 1px solid #999;
+  font-size: 70%;
+  text-transform: uppercase;
+  }
+  td {
+  border: 1px solid #999;
+  height: 5em;
+  width:5em;
+  padding: 5px;
+  vertical-align: top;
+  }
+  caption {
+  font-size: 300%;
+  font-style: italic; 
+  }
+  .day {
+  text-align: right;
+  }
+  .notes {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 80%;
+  text-align: right;
+  padding-left: 20px;
+  }
+  .birthday {
+  background-color: #ECE;
+  }
+  .weekend {
+  background-color: #F3F3F3;
+  }
+}
+
+/* Styling Workflow */
+body{
+  font-size: 13px;
+}
+.calendar_wpr{
+  /*width: 900px;*/
+
+  .title_month{
+    padding: 20px 20px 10px;
+    width: 200px;
+    float: left;
+  }
+  .calendar_menu{
+    float: left;
+    position: relative;
+    width: 240px;
+    font-size: 14px;
+    margin: 25px 0 10px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+
+    a.btn_prev,
+    a.btn_next{
+      width: 30px;
+      height: 30px;
+      display: block;
+      position: absolute;
+      top: 0;
+      background-image: url(/assets/btn_nextprev.gif);
+    }
+    a.btn_prev{
+      background-position: top left;
+      left: 0;
+    }
+    a.btn_next{
+      background-position: top right;
+      right: 0;
+    }
+  }    
+  .change_date{
+    float: left;
+    position: relative;
+    width: 460px;
+    font-size: 14px;
+    padding: 25px 40px 10px;
+
+    .load-datetime{
+      float: left;
+      width: 225px;
+    }
+    .btn_datetime{
+      float: left;
+      width: 70px;
+      height: 30px;
+    }
+    .btn_expand{
+      float: left;
+      width: 120px;
+      height: 30px;
+      margin-left: 30px;
+    }
+  }
+  h3.accordion_title{
+    background: #888;
+    color: #fff;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 15px;
+  }
+  p{margin:0;}
+  p.accordion_wpr{
+    padding-top: 10px;
+  }
+  .accordion_cntt{
+    position: relative;
+    overflow-y:visible;
+    overflow-x:scroll; 
+    table{
+      min-width: 1660px !important;
+    }
+  }
+  thead{
+    th{
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 10px !important;
+      line-height: 14px;
+      span{
+        font-size: 13px !important;
+      }
+    }
+  }
+  tbody{
+    th.time{ 
+      vertical-align: middle; 
+      text-align: center;
+      background: #dedede !important;
+    }
+    p{
+      line-height: 15px;
+      font-size: 12px;
+    }
+    p.time{
+      color: #888;
+      border-bottom: 1px dashed #bbb;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+    }
+    p.course{
+      font-weight: bold;
+    }
+    p.teacher{
+      font-style: italic;
+    }
+    tr:hover td{
+      background-color: #dedede;
+    }
+    td:hover{
+      background-color: #fff !important;
+    }
+  }
+  .event{
+    padding:8px;
+    margin: 0;
+    min-height: 100px;
+    width: 200px;
+  }
+  .posted{
+    background-color: @cC4; 
+    background-image: url(../icon_postado.gif);
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+  .none{
+    background: @cGreen2;
+  }
+  .holiday{
+    .event{
+      background: #bbb url(../bg_holiday.gif);
+    }
+  }
+}
+
+// Acessos do Aluno
+.tab-content{
+  #access{
+    ul, li{
+      display:block;
+      list-style: none;
+      margin: 0;
+    }
+    .course_title{
+      display: block;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 12px !important;
+      border-bottom: 1px solid #ddd;
+      color: @cC2;
+    }
+    .discip_list{
+      background-color: #eaeaea;
+      margin:0 5px 5px;
+      position: relative;
+      float: left;
+    }
+    .header{
+      span{
+        display: block;
+        float: left;
+        margin: 1px 0 1px 1px;
+        padding: 5px;
+        background-color: #fff;
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+    h5{
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      padding: 5px;
+      width: 150px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    li.col_02,
+    li.col_03,
+    li.col_04{
+      display: block;
+      float: left;
+      margin: 1px 0 1px 1px;
+      padding: 5px;
+      background-color: #dedede;
+      border-left:1px solid #ddd;
+      min-height: 40px;
+    }
+    li.col_02{
+      margin-left: 161px;
+      clear: both;
+    }
+    .col_01{ width: 150px;}
+    .col_02{ width: 410px;}
+    .col_03{ width: 70px; text-align: center;}
+    .col_04{ width: 120px; text-align: center;}
+
+    .txt_add{
+      display: block;
+      width: 20px;
+      float: left;
+      color: #777;
+      text-align: center;
+      margin-left: 22px;
+    }
+    .btn_add,
+    .btn_rem{
+      display: block;
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-left: 3px;
+      background-image: url(/assets/btn_addrem.gif);
+    }
+    .btn_add{ background-position: center left;}
+    .btn_rem{ background-position: center right;}
+  }
+  .btn_salvar{
+      width: 70px;
+      height: 30px;
+      margin-left: 700px;
+  }
+}
+
+// Footer
+#footer{
+  position: relative;
+  .logo_kurumi{
+    position: absolute;
+    display: block;
+    right: 20px;
+    top: 20px;
+  }
+}
