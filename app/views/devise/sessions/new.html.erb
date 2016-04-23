@@ -1,28 +1,35 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign in</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%- if devise_mapping.registerable? %>
-        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'right'  %>
-      <% end -%>
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%- if devise_mapping.recoverable? %>
-        <%= link_to "Forgot password?", new_password_path(resource_name), class: 'right' %>
-      <% end -%>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
-      <% if devise_mapping.rememberable? -%>
-        <div class="checkbox" style="width:150px">
-          <label>
-            <%= f.check_box :remember_me %> Remember me
-          </label>
-        </div>
-      <% end -%>
-  <% end %>
-</div>
+
+<div class="account-container login stacked">
+    <div class="content clearfix">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+            <h1>Login</h1>    
+            <div class="login-fields">
+
+                <p>Entre usando seus dados cadastrados:</p>
+
+                <div class="field">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, :class => 'login username-field', :placeholder => 'E-mail' %>
+                </div> <!-- end .field -->
+                <div class="field">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, :class => 'login password-field', :placeholder => 'Senha' %>
+                </div> <!-- end .password -->
+            </div> <!-- end .login-fields -->
+
+            <div class="login-actions">
+                <span class="login-checkbox">
+                    <% if devise_mapping.rememberable? -%>
+                        <%= f.check_box :remember_me, :class => "field login-checkbox" %> <%= f.label :remember_me, :class => "choice" %>
+                    <% end -%>
+                </span>
+                <%= link_to "Esqueci minha senha", new_password_path(resource_name), :style => 'float: left; margin-left: -90px' %>
+
+                <%= f.submit "Entrar", :class => 'button btn btn-primary btn-large' %>                 
+
+            </div> <!-- end .actions -->
+        <% end %>
+
+    </div><!-- end .content -->
+</div><!-- end .account-container -->
