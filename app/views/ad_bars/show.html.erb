@@ -2,14 +2,14 @@
 <% content_for :show do %>
   <dl class="control-group">
     <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
-    <dd><%= @ad_bar.position %></dd>
+    <dd><%= @ad_bar.position.humanize %></dd>
   </dl>
   <dl class="control-group">
     <dt><strong><%= model_class.human_attribute_name(:campaign_id) %>:</strong></dt>
     <dd><%= @ad_bar.campaign.title %></dd>
   </dl>
-  <dl class="control-group">
-    <% if @ad_bar.ads.any? %>
+  <% if @ad_bar.ads.any? %>
+    <dl class="control-group">
       <table class="footable table table-striped table-bordered">
         <thead>
           <tr>
@@ -32,7 +32,7 @@
           <% end %>
         </tbody>
       </table>
-    <% end %>
-  </dl>
+    </dl>
+  <% end %>
 <% end %>
 <%= render :partial => 'layouts/default_show', :locals  => { :object => @ad_bar } -%>

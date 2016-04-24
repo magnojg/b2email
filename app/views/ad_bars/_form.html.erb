@@ -2,15 +2,15 @@
   <div class="control-group">
     <%= f.label :position, :class => "control-label required" %>
     <div class="controls">
-      <%= f.select :position, :collection => AdBar.positions.sort %>
-      <%= errors_for(@ad_bar, :title) %>
+      <%= f.select :position, :collection => AdBar.positions.map { |key, value| [key.humanize, key] }.sort  %>
+      <%= errors_for(@ad_bar, :position) %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :campaign_id, :class => "control-label required" %>
     <div class="controls">
       <%= f.select :campaign_id, :collection => @campaigns %>
-      <%= errors_for(@ad_bar, :title) %>
+      <%= errors_for(@ad_bar, :campaign_id) %>
     </div>
   </div>
   <div class="control-group">

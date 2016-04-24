@@ -13,7 +13,7 @@
       <% @ad_bars.each do |ad_bar| %>
         <tr>
           <td><%= link_to ad_bar.id, ad_bar_path(ad_bar) %></td>
-          <td><%= ad_bar.position %></td>
+          <td><%= ad_bar.position.humanize %></td>
           <td><%= ad_bar.campaign.try(:title) %></td>
           <td class="tcenter">
             <%= actions_to_index(ad_bar) %>

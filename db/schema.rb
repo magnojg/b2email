@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160423005521) do
   enable_extension "plpgsql"
 
   create_table "ad_bars", force: :cascade do |t|
-    t.integer  "position"
+    t.string   "position"
     t.integer  "campaign_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
