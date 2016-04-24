@@ -1,0 +1,7 @@
+development:
+  access_key_id: 'AKIAJFSOK243CTBL4SLA'
+  secret_access_key: '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'
+
+production:
+  access_key_id: 'AKIAJFSOK243CTBL4SLA'
+  secret_access_key: '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'

@@ -8,5 +8,31 @@
     <dt><strong><%= model_class.human_attribute_name(:campaign_id) %>:</strong></dt>
     <dd><%= @ad_bar.campaign.title %></dd>
   </dl>
+  <dl class="control-group">
+    <% if @ad_bar.ads.any? %>
+      <table class="footable table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="tcenter">#</th>
+            <th class="tcenter">Image</th>
+            <th class="tcenter">Title</th>
+            <th class="tcenter">Subtitle</th>
+            <th class="tcenter">URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ad_bar.ads.each do |ad| %>
+            <tr>
+              <td><%= ad.id %></td>
+              <td class="tcenter"><%= image_tag ad.image.url(:thumb) %></td>
+              <td><%= ad.title %></td>
+              <td><%= ad.subtitle %></td>
+              <td><%= ad.url %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </dl>
 <% end %>
 <%= render :partial => 'layouts/default_show', :locals  => { :object => @ad_bar } -%>
