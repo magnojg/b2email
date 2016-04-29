@@ -8,7 +8,7 @@
 
 Project:		Dashboard
 Version:		1.0
-Last change:	10/10/2012	
+Last change:	10/10/2012
 
 
 -------------------------------------------------------------------*/
@@ -31,7 +31,7 @@ Last change:	10/10/2012
 .fc-event.fc-event-hori.fc-event-start.fc-event-end.recording {
 	border-color: red;
 }
-	
+
 .fc-event.fc-event-hori.fc-event-start.fc-event-end.postponed {
 	border-color: yellow;
 }
