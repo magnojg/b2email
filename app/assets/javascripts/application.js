@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require libs/bootstrap
+//= require jquery.minicolors
 //= require_directory .
 //= require jquery.nested-fields
 

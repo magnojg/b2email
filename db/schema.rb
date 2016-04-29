@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429024034) do
+ActiveRecord::Schema.define(version: 20160429042326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20160429024034) do
   create_table "ad_bars", force: :cascade do |t|
     t.string   "position"
     t.integer  "campaign_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "css_style"
+    t.string   "background_color"
   end
 
   add_index "ad_bars", ["campaign_id"], name: "index_ad_bars_on_campaign_id", using: :btree
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160429024034) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "order"
+    t.string   "dimensions"
   end
 
   add_index "ads", ["ad_bar_id"], name: "index_ads_on_ad_bar_id", using: :btree

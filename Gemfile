@@ -17,6 +17,7 @@ gem 'simple-navigation-bootstrap'
 gem 'rails-breadcrumbs'
 gem 'awesome_nested_fields'
 gem 'kaminari'
+gem 'jquery-minicolors-rails'
 
 # gem "twitter-bootstrap-rails"
 

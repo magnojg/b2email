@@ -25,9 +25,6 @@ class AdBarsController < ApplicationController
 
   # GET /ad_bars/1/edit
   def edit
-    3.times do
-      @ad_bar.ads.build
-    end
   end
 
   # POST /ad_bars
@@ -74,6 +71,15 @@ class AdBarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ad_bar
       @ad_bar = AdBar.find(params[:id])
+
+      unless @ad_bar.nil?
+        ad_size = @ad_bar.ads.size
+        if ad_size < 3
+          (ad_size - 3).times do
+            @ad_bar.ads.build
+          end
+        end
+      end
     end
 
     def set_campaigns
@@ -82,6 +88,6 @@ class AdBarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_bar_params
-      params.require(:ad_bar).permit(:position, :campaign_id, :css_style, ads_attributes: [:id, :_destroy, :image, :title, :subtitle, :url, :ad_bar_id, :order])
+      params.require(:ad_bar).permit(:position, :campaign_id, :css_style, :background_color, ads_attributes: [:id, :_destroy, :image, :title, :subtitle, :url, :ad_bar_id, :order])
     end
 end
