@@ -7,6 +7,10 @@ class AdsController < ApplicationController
     @ads = Ad.all
   end
 
+  def list
+
+  end
+
   # GET /ads/1
   # GET /ads/1.json
   def show
