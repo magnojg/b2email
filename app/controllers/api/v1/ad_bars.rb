@@ -4,7 +4,7 @@ require 'uri'
 
 module API  
   module V1
-    class Ads < Grape::API
+    class AdBars < Grape::API
       include API::V1::Defaults
 
       before do
@@ -20,19 +20,17 @@ module API
           params
       end
 
-      resource :ads do
+      resource :ad_bars do
         
         desc "Return all ads"
-        get "", root: :adds do
+        get "", root: :ad_bars do
           content_type 'text/plain'
-          @ads = Ad.all
-          puts params[:campaing_id]
-          @ads = @ads.joins(:ad_bar).where(ad_bars: {position: params[:position]}) unless params[:position].blank?
-          @ads = @ads.joins(:campaign).where(campaigns: {id: params[:campaing_id]}) unless params[:campaing_id].blank?
-          @ads = @ads.joins(:company).where(companies: {id: params[:company_id]}) unless params[:company_id].blank?
-          @ads
+          @ad_bars = AdBar.includes(:ads)
+          @ad_bars = @ad_bars.where(position: params[:position]) unless params[:position].blank?
+          @ad_bars = @ad_bars.where(campaign_id: params[:campaing_id]) unless params[:campaing_id].blank?
+          @ad_bars = @ad_bars.joins(:company).where(companies: {id: params[:company_id]}) unless params[:company_id].blank?
           template = Tilt.new(Rails.root.join('app/views/api/ads/list.html.erb'))
-          template.render(ads: @ads)
+          template.render(ad_bars: @ad_bars)
         end
       end
 
