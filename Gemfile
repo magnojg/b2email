@@ -17,15 +17,12 @@ gem 'simple-navigation-bootstrap'
 gem 'rails-breadcrumbs'
 gem 'awesome_nested_fields'
 gem 'kaminari'
-<<<<<<< HEAD
 gem 'jquery-minicolors-rails'
 
-=======
 gem 'grape'
 gem 'grape_on_rails_routes'
 gem 'grape-active_model_serializers'
 gem 'grape-tokeeo'
->>>>>>> 0b37c8b9fe79b834fde75925c36f5c4eb2a68d47
 # gem "twitter-bootstrap-rails"
 
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
