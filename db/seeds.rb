@@ -7,3 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+
+Ad.create(ad_bar_id: 1, title: "Ad 1", url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Howlsnow.jpg" )
+Ad.create(ad_bar_id: 2, title: "Ad 2", url: "http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/rocky_mountains_gray_wolf.jpg" )
