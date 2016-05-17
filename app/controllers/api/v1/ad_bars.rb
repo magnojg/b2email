@@ -2,7 +2,7 @@ require 'erb'
 require 'tilt'
 require 'uri'
 
-module API  
+module API
   module V1
     class AdBars < Grape::API
       include API::V1::Defaults
@@ -20,20 +20,40 @@ module API
           params
       end
 
+      params do
+        requires :campaign_id, type: Integer
+        requires :position, type: String
+      end
       resource :ad_bars do
-        
+
         desc "Return all ads"
         get "", root: :ad_bars do
           content_type 'text/plain'
-          @ad_bars = AdBar.includes(:ads)
-          @ad_bars = @ad_bars.where(position: params[:position]) unless params[:position].blank?
-          @ad_bars = @ad_bars.where(campaign_id: params[:campaing_id]) unless params[:campaing_id].blank?
-          @ad_bars = @ad_bars.joins(:company).where(companies: {id: params[:company_id]}) unless params[:company_id].blank?
-          template = Tilt.new(Rails.root.join('app/views/api/ads/list.html.erb'))
-          template.render(ad_bars: @ad_bars)
+
+          campaign = Campaign.find(params[:campaign_id])
+
+          if campaign
+
+            directory_name = "public/#{campaign.company_id}"
+            Dir.mkdir(directory_name) unless File.exists?(directory_name)
+
+            file_path = Rails.root.join("#{directory_name}/#{params[:campaign_id]}_#{params[:position]}.html")
+
+            unless File.exist?(file_path)
+              @ad_bars = AdBar.includes(:ads)
+              @ad_bars = @ad_bars.where(position: params[:position]) unless params[:position].blank?
+              @ad_bars = @ad_bars.where(campaign_id: params[:campaing_id]) unless params[:campaing_id].blank?
+              # @ad_bars = @ad_bars.joins(:company).where(companies: params[:company_id]) unless params[:company_id].blank?
+              template = Tilt::ERBTemplate.new(Rails.root.join('app/views/api/ads/list.html.erb'))
+
+              File.open file_path, "w" do |file|
+                  file.write template.render(ad_bars: @ad_bars)
+              end
+            end
+          end
         end
       end
 
     end
   end
-end  
+end

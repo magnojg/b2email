@@ -1,9 +1,9 @@
 <% this[:ad_bars].each do |ad_bar| %>
-	<div class="advertising advertising-left" style="<%= ad_bar.css_style %>"> 
+	<div class="advertising advertising-<%= ad_bar.position %>" style="background-color: <%= ad_bar.background_color %>"> 
 		<% ad_bar.ads.each do |ad| %>
 			<div>
 				<a href="<%= ad.url %>">
-					<img src="<%= ad.image.url if ad.image.present? %>"> 
+					<img src="<%= ad.image.url if ad.image.present? %>">
 				</a>
 			</div>
 		<% end %>
