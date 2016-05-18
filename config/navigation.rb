@@ -10,5 +10,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :root_menu, raw('<i class="icon-home icon-white"></i>'), companies_path
     primary.item :campaigns_menu, 'Campaigns', campaigns_path
     primary.item :ad_bars_menu, 'Ad Bars', ad_bars_path
+    primary.item :test_index_menu, 'Test Page', test_index_path
   end
 end
