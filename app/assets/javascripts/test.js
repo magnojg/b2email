@@ -1,17 +1,13 @@
 $(document).ready(function() {
   $('#load_bar').click(function(event) {
     event.preventDefault();
-    var COMP = $('#company_id').val();
-    var CAMP = $('#campaign_id').val();
-    var POS  = $('#position').val();
-
-    base = '&ad_bar_id='
+    var ad_bar_id = $('#ad_bar_id').val();
 
     $.ajax({
-      url: 'http://localhost:3000/api/v1/ad_bars',
+      url: '/api/v1/ad_bars',
+      dataType: 'json',
       data: {
-        campaign_id: CAMP,
-        position: POS,
+        ad_bar_id: ad_bar_id,
         tk: 'B2EMAIL'
       },
       type: 'GET',
@@ -19,7 +15,9 @@ $(document).ready(function() {
         $('#bar_result').html('<p>An error has occurred</p>');
       },
       success: function(data) {
-        $('#' + POS).html(unescape(JSON.parse(data)));
+        console.log(data)
+        position = data['position']
+        $('#' + position).html(data['content']);
       }
     });
   });

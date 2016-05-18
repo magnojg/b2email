@@ -18,7 +18,40 @@
 //= require jquery.nested-fields
 
 $(function() {
-    $('.bootstrap-datetimepicker-widget').css('z-index','9999')
+  $('#companies_select, .companies_select').change(function() {
+    var company_id, self, url;
+    self = $(this);
+    url = '/load_campaigns';
+    company_id = $(this).val();
+    if (company_id !== null) {
+      $.ajax({
+        url: url,
+        data: {
+          company_id: company_id
+        },
+        dataType: 'script'
+      });
+    }
+  });
+
+
+  $('#campaigns_select, .campaigns_select').change(function() {
+    var campaign_id, self, url;
+    self = $(this);
+    url = '/load_ad_bars';
+    campaign_id = $(this).val();
+    if (campaign_id !== null) {
+      $.ajax({
+        url: url,
+        data: {
+          campaign_id: campaign_id
+        },
+        dataType: 'script'
+      });
+    }
+  });
+
+  $('.bootstrap-datetimepicker-widget').css('z-index','9999')
 
     //Input file wrapper
     inputfilewrapper($('input[type=file]'));
@@ -61,7 +94,7 @@ $(function() {
 
      $("form").nestedFields();
 
-     $(".select-all").on("click", function(){
+    $(".select-all").on("click", function(){
       $(".check").attr("checked", $(this).is(":checked"));
     });
 });

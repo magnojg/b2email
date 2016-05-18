@@ -21,9 +21,7 @@ module API
       end
 
       params do
-        optional :ad_bar_id, type: Integer
-        optional :campaign_id, type: Integer
-        optional :position, type: String
+        requires :ad_bar_id, type: Integer
       end
       resource :ad_bars do
 
@@ -34,34 +32,23 @@ module API
           error_msg = nil
           campaign = nil
 
-          if not params[:ad_bar_id].blank?
-            ad_bar = AdBar.find(params[:ad_bar_id])
-            campaign = ad_bar.try(:campaign)
-          elsif not (params[:campaign_id].blank? && params[:position].blank?)
-            ad_bar = AdBar.where(campaign_id: params[:campaign_id], position: params[:position])
-            unless ad_bar.nil?
-              ad_bar = ad_bar.last
-              campaign = ad_bar.try(:campaign)
-            end
-          else
-            error_msg = '[ad_bar_id] or [campaign_id and position] is missing'
-          end
-
-          unless error_msg.nil?
-            error!({ 'error_msg' => error_msg }, 401)
-          end
+          ad_bar = AdBar.find(params[:ad_bar_id])
+          campaign = ad_bar.try(:campaign)
 
           if campaign
 
             directory_name = "public/COMP#{campaign.company_id}"
 
-            position = (ad_bar.nil?) ? params[:position] : ad_bar.position
+            position = ad_bar.position
 
-            file_path = Rails.root.join("#{directory_name}/CAMP#{campaign.id}_POS#{position}.html")
+            file_path = Rails.root.join("#{directory_name}/CAMP#{campaign.id}_POS#{position.humanize}.html")
 
             if File.exist?(file_path)
               file = File.read(file_path)
-              return file.html_safe
+              {
+                position: position,
+                content: file.html_safe
+              }
             else
               Rails.logger.info "Creating #{file_path}"
 
@@ -80,8 +67,14 @@ module API
                 File.open file_path, "w" do |file|
                   file.write template.render(ad_bars: @ad_bars)
                   Rails.logger.info "#{file_path} created!"
-                  true
                 end
+
+                file = File.read(file_path)
+                
+                {
+                  position: position,
+                  content: file.html_safe
+                }
               else
                 Rails.logger.info "ad_bars nil"
                 false
