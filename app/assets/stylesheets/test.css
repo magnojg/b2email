@@ -1,0 +1,31 @@
+.advertising-left {
+    left: 0;
+}
+.advertising-right {
+    right: 0;
+}
+.advertising>div>a>img {
+    object-fit: cover;
+    width: 100%;
+}
+img {
+    border: 0;
+}
+.advertising {
+    width: 14%;
+    position: absolute;
+    top: 88px;
+    bottom: 20px;
+    background-color: #F5F5F5;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center,center;
+    overflow: hidden;
+}
+#bar_result {
+  width: 50px;
+  height: 350px;
+}
+#content {
+  height: 700px;
+}

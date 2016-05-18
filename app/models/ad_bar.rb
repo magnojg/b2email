@@ -8,4 +8,18 @@ class AdBar < ActiveRecord::Base
   accepts_nested_attributes_for :ads,
                                 :allow_destroy => true,
                                 reject_if: proc { |attributes| attributes['title'].blank? || attributes['image'].blank? }
+
+  def self.search(params)
+
+    where_clause = []
+
+    where_clause.push("ad_bars.position = '#{params[:position]}'") unless params[:position].blank?
+    where_clause.push("ad_bars.campaign_id = #{params[:campaign_id]}") unless params[:campaign_id].blank?
+    where_clause.push("ad_bars.id = #{params[:ad_bar_id]}") unless params[:ad_bar_id].blank?
+
+    includes(:ads)
+    .uniq
+    .where(where_clause.join(' AND '))
+    .order(:id => :desc).first
+  end
 end

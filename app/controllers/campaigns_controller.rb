@@ -31,6 +31,9 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.save
+
+        remove_dir
+
         format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
         format.json { render :show, status: :created, location: @campaign }
       else
@@ -45,6 +48,9 @@ class CampaignsController < ApplicationController
   def update
     respond_to do |format|
       if @campaign.update(campaign_params)
+
+        remove_dir
+
         format.html { redirect_to @campaign, notice: 'Campaign was successfully updated.' }
         format.json { render :show, status: :ok, location: @campaign }
       else
@@ -58,6 +64,9 @@ class CampaignsController < ApplicationController
   # DELETE /campaigns/1.json
   def destroy
     @campaign.destroy
+
+    remove_dir
+
     respond_to do |format|
       format.html { redirect_to campaigns_url, notice: 'Campaign was successfully destroyed.' }
       format.json { head :no_content }
@@ -72,6 +81,17 @@ class CampaignsController < ApplicationController
 
     def set_companies
       @companies = Company.pluck(:trading_name, :id)
+    end
+
+    def remove_dir
+      directory_name = Rails.root.join("public/COMP#{@campaign.company_id}")
+
+      if File.exists?(directory_name)
+        FileUtils.remove_dir(directory_name, true)
+        Rails.logger.info "Dir #{directory_name} removed!"
+      else
+        Rails.logger.info "Dir #{directory_name} doesn't"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
