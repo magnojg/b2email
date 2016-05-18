@@ -1,10 +1,14 @@
 <%- model_class = AdBar -%>
 <% content_for :show do %>
   <dl class="control-group">
+    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dd><%= @ad_bar.id %></dd>
+  </dl>
+  <dl class="control-group">
     <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
     <dd><%= @ad_bar.position.humanize %></dd>
   </dl>
-  <dl class="control-group">
+<dl class="control-group">
     <dt><strong><%= model_class.human_attribute_name(:campaign_id) %>:</strong></dt>
     <dd><%= @ad_bar.campaign.title %></dd>
   </dl>

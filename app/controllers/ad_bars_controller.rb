@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class AdBarsController < ApplicationController
   before_action :set_ad_bar, only: [:show, :edit, :update, :destroy]
   before_action :set_campaigns
@@ -34,6 +36,9 @@ class AdBarsController < ApplicationController
 
     respond_to do |format|
       if @ad_bar.save
+
+        remove_dir
+
         format.html { redirect_to @ad_bar, notice: 'Ad bar was successfully created.' }
         format.json { render :show, status: :created, location: @ad_bar }
       else
@@ -48,6 +53,9 @@ class AdBarsController < ApplicationController
   def update
     respond_to do |format|
       if @ad_bar.update(ad_bar_params)
+
+        remove_dir
+
         format.html { redirect_to @ad_bar, notice: 'Ad bar was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad_bar }
       else
@@ -61,6 +69,9 @@ class AdBarsController < ApplicationController
   # DELETE /ad_bars/1.json
   def destroy
     @ad_bar.destroy
+
+    remove_dir
+
     respond_to do |format|
       format.html { redirect_to ad_bars_url, notice: 'Ad bar was successfully destroyed.' }
       format.json { head :no_content }
@@ -83,7 +94,20 @@ class AdBarsController < ApplicationController
     end
 
     def set_campaigns
-      @campaigns = Campaign.pluck(:title, :id)
+      @campaigns = Campaign.includes(:company)
+                           .order("companies.name, campaigns.title")
+                           .map { |campaign| ["#{campaign.company.try(:name)}: #{campaign.title}", campaign.id] }
+    end
+
+    def remove_dir
+      directory_name = Rails.root.join("public/COMP#{@ad_bar.campaign.company_id}")
+
+      if File.exists?(directory_name)
+        FileUtils.remove_dir(directory_name, true)
+        Rails.logger.info "Dir #{directory_name} removed!"
+      else
+        Rails.logger.info "Dir #{directory_name} doesn't"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

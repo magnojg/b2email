@@ -1,0 +1,36 @@
+<section id="content">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="row-fluid">
+          <div class="span12" id="top"></div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span2" id="left"></div>
+          <div class="span8">
+            <div class="control-group">
+              <%= label_tag :position %>
+              <div class="controls">
+                <%= select_tag :position, options_for_select(AdBar.positions.map { |key, value| [key.humanize, key] }.sort)  %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag :campaign_id %>
+              <div class="controls">
+                <%= select_tag :campaign_id, options_for_select(@campaigns) %>
+              </div>
+            </div>
+            <div class="control-group">
+              <input type="submit" id="load_bar" />
+            </div>
+          </div>
+          <div class="span2" id="right"></div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12" id="bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
