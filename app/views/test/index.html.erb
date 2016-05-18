@@ -10,15 +10,21 @@
           <div class="span2" id="left"></div>
           <div class="span8">
             <div class="control-group">
-              <%= label_tag :position %>
+              <%= label_tag :company %>
               <div class="controls">
-                <%= select_tag :position, options_for_select(AdBar.positions.map { |key, value| [key.humanize, key] }.sort)  %>
+                <%= select_tag(:company_id, options_for_select(@companies, :selected => params[:company_id]), { :prompt => 'Select a Company', class: 'form-control', id: 'companies_select' }) %>
               </div>
             </div>
             <div class="control-group">
-              <%= label_tag :campaign_id %>
+              <%= label_tag :campaign %>
               <div class="controls">
-                <%= select_tag :campaign_id, options_for_select(@campaigns) %>
+                <%= select_tag(:campaign_id, options_for_select(@campaigns, :selected => params[:campaign_id]), { :prompt => 'Select a Company', class: 'form-control', id: 'campaigns_select' }) %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= label_tag :ad_bar %>
+              <div class="controls">
+                <%= select_tag(:ad_bar_id, options_for_select(@ad_bars, :selected => params[:ad_bar_id]), { :prompt => 'Select a Campaign', class: 'form-control ad_bars_select', id: 'ad_bar_id' }) %>
               </div>
             </div>
             <div class="control-group">
