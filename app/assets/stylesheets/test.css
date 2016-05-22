@@ -29,3 +29,6 @@ img {
 #content {
   height: 700px;
 }
+code {
+    font-family: monospace;
+}
