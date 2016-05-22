@@ -34,7 +34,6 @@ $(function() {
     }
   });
 
-
   $('#campaigns_select, .campaigns_select').change(function() {
     var campaign_id, self, url;
     self = $(this);

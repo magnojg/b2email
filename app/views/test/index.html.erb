@@ -12,23 +12,26 @@
             <div class="control-group">
               <%= label_tag :company %>
               <div class="controls">
-                <%= select_tag(:company_id, options_for_select(@companies, :selected => params[:company_id]), { :prompt => 'Select a Company', class: 'form-control', id: 'companies_select' }) %>
+                <%= select_tag(:company_id, options_for_select(@companies, :selected => params[:company_id]), { :prompt => 'Select a Company', class: 'form-control span7', id: 'companies_select' }) %>
               </div>
             </div>
             <div class="control-group">
               <%= label_tag :campaign %>
               <div class="controls">
-                <%= select_tag(:campaign_id, options_for_select(@campaigns, :selected => params[:campaign_id]), { :prompt => 'Select a Company', class: 'form-control', id: 'campaigns_select' }) %>
+                <%= select_tag(:campaign_id, options_for_select(@campaigns, :selected => params[:campaign_id]), { :prompt => 'Select a Company', class: 'form-control span7', id: 'campaigns_select' }) %>
               </div>
             </div>
             <div class="control-group">
               <%= label_tag :ad_bar %>
               <div class="controls">
-                <%= select_tag(:ad_bar_id, options_for_select(@ad_bars, :selected => params[:ad_bar_id]), { :prompt => 'Select a Campaign', class: 'form-control ad_bars_select', id: 'ad_bar_id' }) %>
+                <%= select_tag(:ad_bar_id, options_for_select(@ad_bars, :selected => params[:ad_bar_id]), { :prompt => 'Select a Campaign', class: 'form-control ad_bars_select span7', id: 'ad_bar_id' }) %>
               </div>
             </div>
             <div class="control-group">
               <input type="submit" id="load_bar" />
+            </div>
+            <div class="control-group">
+              <pre id="url_call"></pre>
             </div>
           </div>
           <div class="span2" id="right"></div>
