@@ -24,7 +24,7 @@ module API
         
         desc "Return all ads"
         get "", root: :ad_bars do
-          content_type 'text/plain'
+          content_type 'text/html'
           @ad_bars = AdBar.includes(:ads)
           @ad_bars = @ad_bars.where(position: params[:position]) unless params[:position].blank?
           @ad_bars = @ad_bars.where(campaign_id: params[:campaing_id]) unless params[:campaing_id].blank?
