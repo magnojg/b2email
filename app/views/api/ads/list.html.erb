@@ -1,11 +1,10 @@
-<% this[:ad_bars].each do |ad_bar| %>
-	<div class="advertising advertising-left" style="<%= ad_bar.css_style %>"> 
-		<% ad_bar.ads.each do |ad| %>
-			<div>
-				<a href="<%= ad.url %>">
-					<img src="<%= ad.image.url if ad.image.present? %>"> 
-				</a>
-			</div>
-		<% end %>
-	</div>
-<% end %>
+<% ad_bar = this[:ad_bars] %>
+<div class="advertising advertising-<%= ad_bar.position %>" style="background-color: <%= ad_bar.background_color %>">
+	<% ad_bar.ads.order("ads.order, ads.title, ads.id").each do |ad| %>
+		<div>
+			<a href="<%= ad.url %>">
+				<img src="<%= ad.image.url if ad.image.present? %>">
+			</a>
+		</div>
+	<% end %>
+</div>

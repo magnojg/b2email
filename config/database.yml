@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: b2_dev
-  username: untoten
-  password:
+  username: magnogouveia
+  password: 123456
   host: localhost
   port: 5432

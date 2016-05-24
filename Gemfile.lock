@@ -140,6 +140,9 @@ GEM
       multi_json (~> 1.2)
     jmespath (1.2.4)
       json_pure (>= 1.8.1)
+    jquery-minicolors-rails (2.2.3.0)
+      jquery-rails
+      rails (>= 3.2.8)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -300,6 +303,7 @@ DEPENDENCIES
   grape_on_rails_routes
   hub
   jbuilder (~> 2.0)
+  jquery-minicolors-rails
   jquery-rails
   kaminari
   modernizr-rails
@@ -321,9 +325,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-
-RUBY VERSION
-   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.3

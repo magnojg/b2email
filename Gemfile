@@ -17,6 +17,8 @@ gem 'simple-navigation-bootstrap'
 gem 'rails-breadcrumbs'
 gem 'awesome_nested_fields'
 gem 'kaminari'
+gem 'jquery-minicolors-rails'
+
 gem 'grape'
 gem 'grape_on_rails_routes'
 gem 'grape-active_model_serializers'

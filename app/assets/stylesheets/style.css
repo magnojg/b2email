@@ -1821,6 +1821,12 @@ label, input, button, select, textarea {
 }
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{
     font-size: 13px;
+    height: 26;
+}
+
+input[type="number"] {
+  width: 50px;
+  text-align: center;
 }
 .input-append .add-on, .input-prepend .add-on {
     font-size: 13px;
@@ -2847,7 +2853,7 @@ table [class^="icon-"]:not(.ui-icon),  table [class*="icon-"]:not(.ui-icon){
                     padding-top: 0;
                     line-height: 1em;
                 }
-                .list-type-table-item .col .control-label >  2.small{
+                .list-type-table-item .col .control-label > .small{
                     /*font-size: 0.875em;*/
                 }
             .list-type-table-item .col:not(.actions){
