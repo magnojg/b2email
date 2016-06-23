@@ -1989,7 +1989,7 @@ Layout: Header
     font-size: 18px;
     font-weight: 600;
     line-height: 600;
-    background: url(logo.png?ce) no-repeat 0 6px;
+    /*background: url(logo.png?ce) no-repeat 0 6px;*/
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 #header .btn-navbar {

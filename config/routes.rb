@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :login_bg_images
   get 'test/index'
 
   get 'admin' => 'admin#home'
