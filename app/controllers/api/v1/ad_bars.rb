@@ -64,7 +64,7 @@ module API
               template = Tilt::ERBTemplate.new(Rails.root.join('app/views/api/ads/list.html.erb'))
 
               File.open file_path, "w" do |file|
-                file.write template.render(ad_bars: ad_bar)
+                file.write template.render(ad_bars: ad_)
                 Rails.logger.info "#{file_path} created!"
               end
 
@@ -74,10 +74,6 @@ module API
                 position: position,
                 content: file.html_safe
               }
-              # else
-              #   Rails.logger.info "ad_bars nil"
-              #   false
-              # end
             end
           end
         end

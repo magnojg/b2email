@@ -1,0 +1,25 @@
+<% content_for :index do %>
+    <table class="footable table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th class="tcenter th-action"><%= t 'index.action' %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @login_bg_images.each do |login_bg_image| %>
+          <tr>
+            <td class="tcenter td-action btn-group">
+              <%= actions_to_index(login_bg_image) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+
+<%= render  :partial => 'layouts/default_index',
+            :locals => {
+              :collection => @login_bg_images,
+              :class_name => LoginBgImage
+            }
+-%> 

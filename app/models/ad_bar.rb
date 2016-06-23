@@ -4,7 +4,7 @@ class AdBar < ActiveRecord::Base
 
   enum positions: [ :top, :bottom, :left, :right ]
 
-  has_many :ads
+  has_many :ads, :dependent => :destroy
   accepts_nested_attributes_for :ads,
                                 :allow_destroy => true,
                                 reject_if: proc { |attributes| attributes['title'].blank? || attributes['image'].blank? }
