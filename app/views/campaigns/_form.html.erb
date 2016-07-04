@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :title, :class => "control-label required" %>
     <div class="controls">
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class: 'span4' %>
       <%= errors_for(@campaign, :title) %>
     </div>
   </div>
@@ -10,11 +10,11 @@
     <%= f.label :period, :class => 'control-label' %>
     <div class="controls control-row">
       <span class="datetime input-append">
-        <%= f.text_field :start_at, :class => 'datetime_select datetime-start', :value => format_datetime(f, :start_at) %>
+        <%= f.text_field :start_at, :class => 'datetime_select datetime-start', :value => format_datetime(f, :start_at), placeholder: 'dd/mm/yyyy' %>
       </span>
       &nbsp;to&nbsp;
       <span class="datetime input-append">
-        <%= f.text_field :end_at, :class => 'datetime_select datetime-end', :value => format_datetime(f, :end_at) %>
+        <%= f.text_field :end_at, :class => 'datetime_select datetime-end', :value => format_datetime(f, :end_at), placeholder: 'dd/mm/yyyy' %>
       </span>
     </div>
   </div>

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def load_ad_bars
 
-    @ad_bars = AdBar.where(campaign_id: params[:campaign_id]).order(:position).map { |adbar| ["#{adbar.id} - #{adbar.position.humanize}", adbar.id] }
+    @ad_bars = AdBar.distinct.select(:position).where(campaign_id: params[:campaign_id]).order(:position).map { |adbar| [adbar.position.humanize, adbar.position] }
 		@ad_bars.insert(0, ["Select an Ad Bar", ""])
 	end
 end

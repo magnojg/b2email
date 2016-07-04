@@ -24,12 +24,13 @@
             <div class="control-group">
               <%= label_tag :ad_bar %>
               <div class="controls">
-                <%= select_tag(:ad_bar_id, options_for_select(@ad_bars, :selected => params[:ad_bar_id]), { :prompt => 'Select a Campaign', class: 'form-control ad_bars_select span7', id: 'ad_bar_id' }) %>
+                <%= select_tag(:ad_bar_id, options_for_select(@ad_bars, :selected => params[:ad_bar_id]), { :prompt => 'Select a Campaign', class: 'form-control ad_bars_select span7', id: 'ad_bar_position_select' }) %>
               </div>
             </div>
-            <div class="control-group">
+
+            <!-- <div class="control-group">
               <input type="submit" id="load_bar" />
-            </div>
+            </div> -->
             <div class="control-group">
               <pre id="url_call"></pre>
             </div>

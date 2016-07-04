@@ -6,10 +6,6 @@
 }
 .advertising>div>a>img {
     object-fit: cover;
-    width: 100%;
-}
-img {
-    border: 0;
 }
 .advertising {
     width: 14%;

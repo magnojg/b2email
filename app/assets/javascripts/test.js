@@ -1,13 +1,15 @@
 $(document).ready(function() {
-  $('#load_bar').click(function(event) {
+  $('#ad_bar_position_select').change(function(event) {
     event.preventDefault();
-    var ad_bar_id = $('#ad_bar_id').val();
-
+    var company = $('#companies_select').val();
+    var position = $(this).val();
+    
     $.ajax({
       url: '/api/v1/ad_bars',
       dataType: 'json',
       data: {
-        ad_bar_id: ad_bar_id,
+        company_id: company,
+        position: position,
         tk: 'B2EMAIL'
       },
       type: 'GET',
@@ -19,9 +21,14 @@ $(document).ready(function() {
         $('#bar_result').html('<p>An error has occurred</p>');
       },
       success: function(data) {
-        position = data['position']
+        var content = data['content'];
+
+        if(content == '') {
+          content = 'Nothing to display';
+        }
+
         $('#url_call').html(jquery_result);
-        $('#' + position).html(data['content']);
+        $('#' + position).html(content);
       }
     });
   });

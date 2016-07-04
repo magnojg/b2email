@@ -14,10 +14,10 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :background_color, :class => "control-label required" %>
+    <%= f.label :css_background_color, :class => "control-label required" %>
     <div class="controls">
-      <%= f.text_field :background_color, class: 'minicolors', maxlength: 7, size: 7 %>
-      <%= errors_for(@ad_bar, :background_color) %>
+      <%= f.text_field :css_background_color, class: 'minicolors', maxlength: 7, size: 7 %>
+      <%= errors_for(@ad_bar, :css_background_color) %>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
                 <%= nested.text_field :title, placeholder: true %>
                 <%= nested.text_field :subtitle, placeholder: true %>
                 <%= nested.url_field :url, placeholder: true %>
-                <%= nested.number_field :order, placeholder: true %>
+                <%= nested.number_field :sort_order, placeholder: true %>
                 <%= nested.file_field :image, placeholder: true, class: 'file_field' %>
               </div>
             </div>

@@ -11,25 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160603205924) do
-=======
-ActiveRecord::Schema.define(version: 20160522204903) do
->>>>>>> 78252e70f42f6af03a335c852113b22680003ea9
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ad_bars", force: :cascade do |t|
     t.string   "position"
-    t.integer  "campaign_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "css_background_color"
     t.integer  "css_width",            default: 0
     t.integer  "css_height",           default: 0
     t.integer  "images_limit",         default: 0
+    t.string   "css_background_color"
     t.integer  "space_between_images", default: 0
+    t.integer  "campaign_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "ad_bars", ["campaign_id"], name: "index_ad_bars_on_campaign_id", using: :btree
@@ -42,11 +38,11 @@ ActiveRecord::Schema.define(version: 20160522204903) do
     t.text     "title"
     t.text     "subtitle"
     t.text     "url"
+    t.integer  "sort_order"
+    t.string   "dimensions"
     t.integer  "ad_bar_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "order"
-    t.string   "dimensions"
   end
 
   add_index "ads", ["ad_bar_id"], name: "index_ads_on_ad_bar_id", using: :btree
@@ -67,9 +63,9 @@ ActiveRecord::Schema.define(version: 20160522204903) do
     t.string   "trading_name"
     t.string   "registration_number"
     t.text     "address"
+    t.text     "domain_url"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.text     "domain_url"
   end
 
   create_table "login_bg_images", force: :cascade do |t|
@@ -88,14 +84,13 @@ ActiveRecord::Schema.define(version: 20160522204903) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "role"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"

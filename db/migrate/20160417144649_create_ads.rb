@@ -5,6 +5,9 @@ class CreateAds < ActiveRecord::Migration
       t.text :title
       t.text :subtitle
       t.text :url
+      t.integer :sort_order, default: nil
+      t.string :dimensions
+
       t.references :ad_bar, index: true, foreign_key: true
 
       t.timestamps null: false

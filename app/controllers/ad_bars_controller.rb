@@ -96,7 +96,7 @@ class AdBarsController < ApplicationController
     def set_campaigns
       @campaigns = Campaign.includes(:company)
                            .order("companies.name, campaigns.title")
-                           .map { |campaign| ["#{campaign.company.try(:name)}: #{campaign.title}", campaign.id] }
+                           .map { |campaign| ["#{campaign.company.try(:trading_name)}: #{campaign.title}", campaign.id] }
     end
 
     def remove_dir
@@ -112,6 +112,6 @@ class AdBarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_bar_params
-      params.require(:ad_bar).permit(:position, :campaign_id, :css_style, :background_color, ads_attributes: [:id, :_destroy, :image, :title, :subtitle, :url, :ad_bar_id, :order])
+      params.require(:ad_bar).permit(:position, :campaign_id, :css_style, :css_background_color, ads_attributes: [:id, :_destroy, :image, :title, :subtitle, :url, :ad_bar_id, :sort_order])
     end
 end

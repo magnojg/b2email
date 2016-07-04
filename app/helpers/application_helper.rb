@@ -75,8 +75,12 @@ module ApplicationHelper
     raw(html)
   end
 
-  def show_datetime(date)
-    date.blank? ? 'Nunca' : l(date, :format => :datetime)
+  def show_date(date)
+    date.blank? ? 'Nunca' : l(date, :format => :date)
+  end
+
+  def show_datetime(datetime)
+    datetime.blank? ? 'Nunca' : l(datetime, :format => :datetime)
   end
 
   def valid_boolean!(value)
