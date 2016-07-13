@@ -33,8 +33,8 @@
           <div class="list-accordion-header list-inner-normal-header list-inner-horizontal-items">
             <div class="control-group">
               <div class="controls">
-                <%= nested.text_field :title, placeholder: true %>
-                <%= nested.text_field :subtitle, placeholder: true %>
+                <%= nested.cktext_area :title, :class => :editor, placeholder: true %>
+                <%= nested.cktext_area :subtitle, :class => :editor, placeholder: true %>
                 <%= nested.url_field :url, placeholder: true %>
                 <%= nested.number_field :sort_order, placeholder: true %>
                 <%= nested.file_field :image, placeholder: true, class: 'file_field' %>

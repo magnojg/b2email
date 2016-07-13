@@ -16,3 +16,4 @@ Rails.application.config.assets.precompile += %w( plugins/bootstrap-datetimepick
 Rails.application.config.assets.precompile += %w( plugins/bootstrap-file-input.js )
 Rails.application.config.assets.precompile += %w( plugins/validate/jquery.validate.js )
 Rails.application.config.assets.precompile += %w( plugins/validate/jquery.validate.pt-br.js )
+Rails.application.config.assets.precompile += %w( ckeditor/* )

@@ -16,8 +16,10 @@
 //= require jquery.minicolors
 //= require_directory .
 //= require jquery.nested-fields
+//= require ckeditor/init
 
 $(function() {
+
   $('#companies_select, .companies_select').change(function() {
     var company_id, self, url;
     self = $(this);

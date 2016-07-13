@@ -23,6 +23,7 @@ gem 'grape'
 gem 'grape_on_rails_routes'
 gem 'grape-active_model_serializers'
 gem 'grape-tokeeo'
+gem 'ckeditor'
 # gem "twitter-bootstrap-rails"
 
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
