@@ -15,7 +15,7 @@ class LoginBgImage < ActiveRecord::Base
 												size: { in: 0..1.megabytes }
 
   Paperclip.interpolates :company_folder do |attachment, style|
-    "COMP#{attachment.instance.company_id}"
+    "COMP#{attachment.instance.campaign.company_id}"
   end
 
   Paperclip.interpolates :campaign_folder do |attachment, style|
