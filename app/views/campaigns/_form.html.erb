@@ -24,6 +24,38 @@
       <%= f.select :company_id, @companies, :class => 'text_field' %>
     </div>
   </div>
+  <div class="nested-first fields-content-inner no-padding">
+    <ol class="first-items list-inner-normal">
+      <header class="form-fields-header">
+        <h3 class="form-fields-header-title">Login BG Images</h3>
+      </header>
+
+      <%= f.nested_fields_for :login_bg_images do |nested| %>
+
+        <li class="first-item list-inner-normal-item">
+          <div class="list-accordion-header list-inner-normal-header list-inner-horizontal-items">
+            <div class="control-group">
+              <div class="controls">
+                <%= nested.number_field :sort_order, placeholder: true %>
+                <%= nested.file_field :image, placeholder: true, class: 'file_field' %>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <a href="#" class="remove btn btn-small btn-danger" title="Remove"><i class="icon-trash"></i></a>
+            </div>
+
+            <%= nested.hidden_field :id %>
+            <%= nested.hidden_field :_destroy %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+    <div class="form-actions">
+      <a href="#" class="add btn btn-small btn-info"><i class="icon-plus-sign"></i>Add</a>
+    </div>
+  </div>
+
 </div>
 
 <% content_for :scripts do %>

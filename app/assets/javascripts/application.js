@@ -52,52 +52,27 @@ $(function() {
     }
   });
 
-  $('.bootstrap-datetimepicker-widget').css('z-index','9999')
+  $('.bootstrap-datetimepicker-widget').css('z-index','9999');
 
-    //Input file wrapper
-    inputfilewrapper($('input[type=file]'));
+  //Input file wrapper
+  inputfilewrapper($('input[type=file]'));
 
-    //Nested field para attachments em lessons form
-    $('.nested-attachment').nestedFields({
-      containerSelector: '.attachments-items',
-      itemSelector: '.attachment-item',
-      afterInsert: function(item){
-        inputfilewrapper(item.find("input[type='file']"));
-        loadAttachmentTagField(item);
-        loadAttachmentPosition(item);
-        item.find('.more').on('click', function(){
-          $(this).toggleClass('active');
-          $(this).parents('.list-type-table-item').find('.list-line-more').stop().slideToggle();
-          if($(this).hasClass('active')){
-            $(this).children('i').attr('class', 'icon-chevron-up');
-          }else{
-            $(this).children('i').attr('class', 'icon-chevron-down');
-          }
-        });
-      }
-    });
+  $('.clear-calendar').click(function(){
+    $(this).parent().children('.datetime_select').val('');
+  });
 
-    // remove all masked money
-    // $('form').submit(function(){
-    //     $('.money').maskMoney('destroy');
-    // });
+  $('.datetime_select').addClass('input-medium');
 
-    $('.clear-calendar').click(function(){
-      $(this).parent().children('.datetime_select').val('');
-    });
+  /*
+   * Quando for página inicial, remove classe de icone na cor branco
+   */
+   $('#root_menu.active').find('.icon-home').removeClass('icon-white');
 
-    $('.datetime_select').addClass('input-medium');
+   $('form').nestedFields();
 
-    /*
-     * Quando for página inicial, remove classe de icone na cor branco
-     */
-     $('#root_menu.active').find('.icon-home').removeClass('icon-white');
-
-     $("form").nestedFields();
-
-    $(".select-all").on("click", function(){
-      $(".check").attr("checked", $(this).is(":checked"));
-    });
+  $(".select-all").on("click", function(){
+    $(".check").attr("checked", $(this).is(":checked"));
+  });
 });
 
 function addCalendar(){

@@ -18,6 +18,10 @@ class CampaignsController < ApplicationController
   # GET /campaigns/new
   def new
     @campaign = Campaign.new
+
+    3.times do
+      @campaign.login_bg_images.build
+    end
   end
 
   # GET /campaigns/1/edit
@@ -77,6 +81,15 @@ class CampaignsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign
       @campaign = Campaign.find(params[:id])
+
+      unless @campaign.nil?
+        image_bg_size = @campaign.login_bg_images.size
+        if image_bg_size < 3
+          (image_bg_size - 3).times do
+            @campaign.login_bg_images.build
+          end
+        end
+      end
     end
 
     def set_companies
@@ -96,6 +109,6 @@ class CampaignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def campaign_params
-      params.require(:campaign).permit(:title, :start_at, :end_at, :company_id)
+      params.require(:campaign).permit(:title, :start_at, :end_at, :company_id, login_bg_images_attributes: [:id, :_destroy, :image, :campaign_id, :sort_order])
     end
 end

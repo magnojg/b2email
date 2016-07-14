@@ -69,9 +69,18 @@ ActiveRecord::Schema.define(version: 20160603205924) do
   end
 
   create_table "login_bg_images", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "dimensions"
+    t.integer  "sort_order"
+    t.integer  "campaign_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
+
+  add_index "login_bg_images", ["campaign_id"], name: "index_login_bg_images_on_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -110,4 +119,5 @@ ActiveRecord::Schema.define(version: 20160603205924) do
   add_foreign_key "ad_bars", "campaigns"
   add_foreign_key "ads", "ad_bars"
   add_foreign_key "campaigns", "companies"
+  add_foreign_key "login_bg_images", "campaigns"
 end

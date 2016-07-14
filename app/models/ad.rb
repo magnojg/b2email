@@ -7,14 +7,6 @@ class Ad < ActiveRecord::Base
 										:default_url => 'missing.jpg',
 										:path => '/:company_folder/:campaign_folder/:id.:style.:filename',
                     :url => ":s3_domain_url"
-                    # :s3_permissions
-                    # :styles => { medium: '250x250>', thumb: '100x100>' }, # as imagens já são submetidas com o tamanho correto
-										# :storage => :s3,
-										# ,
-										# :bucket => 'webmail-ad-content'
-                    #,
-                    # :s3_host_alias => 'dmalx1hpwzmdi.cloudfront.net',
-										# :url => ':s3_alias_url',
 
   before_save :extract_dimensions
   serialize :dimensions
