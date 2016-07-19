@@ -16,5 +16,27 @@
     <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
     <dd><%= @campaign.company.trading_name %></dd>
   </dl>
+  <% if @campaign.login_bg_images.any? %>
+    <dl class="control-group">
+      <table class="footable table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="tcenter">#</th>
+            <th class="tcenter">Image</th>
+            <th class="tcenter">Dimensions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @campaign.login_bg_images.each do |lbi| %>
+            <tr>
+              <td><%= lbi.id %></td>
+              <td class="tcenter"><%= image_tag lbi.image.url, style: "height: 70px" %></td>
+              <td class="tcenter"><%= lbi.dimensions %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </dl>
+  <% end %>
 <% end %>
 <%= render :partial => 'layouts/default_show', :locals  => { :object => @campaign } -%>
