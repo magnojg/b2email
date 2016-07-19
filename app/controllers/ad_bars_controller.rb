@@ -20,9 +20,7 @@ class AdBarsController < ApplicationController
   # GET /ad_bars/new
   def new
     @ad_bar = AdBar.new
-    3.times do
-      @ad_bar.ads.build
-    end
+    @ad_bar.ads.build
   end
 
   # GET /ad_bars/1/edit
@@ -82,15 +80,7 @@ class AdBarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ad_bar
       @ad_bar = AdBar.find(params[:id])
-
-      unless @ad_bar.nil?
-        ad_size = @ad_bar.ads.size
-        if ad_size < 3
-          (ad_size - 3).times do
-            @ad_bar.ads.build
-          end
-        end
-      end
+      @ad_bar.ads.build
     end
 
     def set_campaigns

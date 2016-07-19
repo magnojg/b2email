@@ -32,15 +32,36 @@
         <li class="first-item list-inner-normal-item">
           <div class="list-accordion-header list-inner-normal-header list-inner-horizontal-items">
             <div class="control-group">
+              <%= nested.label :title, :class => "control-label required" %>
               <div class="controls">
                 <%= nested.cktext_area :title, :class => :editor, placeholder: true %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= nested.label :subtitle, :class => "control-label required" %>
+              <div class="controls">
                 <%= nested.cktext_area :subtitle, :class => :editor, placeholder: true %>
+              </div>
+              <br />
+            </div>
+            <div class="control-group">
+              <%= nested.label :url, :class => "control-label required" %>
+              <div class="controls">
                 <%= nested.url_field :url, placeholder: true %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= nested.label :sort_order, :class => "control-label required" %>
+              <div class="controls">
                 <%= nested.number_field :sort_order, placeholder: true %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= nested.label :image, :class => "control-label required" %>
+              <div class="controls">
                 <%= nested.file_field :image, placeholder: true, class: 'file_field' %>
               </div>
             </div>
-
             <div class="btn-group">
               <a href="#" class="remove btn btn-small btn-danger" title="Remove"><i class="icon-trash"></i></a>
             </div>

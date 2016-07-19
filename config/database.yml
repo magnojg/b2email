@@ -1,8 +1,16 @@
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: b2_dev
+#   username: magnogouveia
+#   password: 123456
+#   host: localhost
+#   port: 5432
 development:
   adapter: postgresql
   encoding: unicode
-  database: b2_dev
-  username: magnogouveia
-  password: 123456
-  host: localhost
+  database: d7gbk8ng30hdeo
+  username: huzhqmvrbphdxi
+  password: 5Sd7Yd5okLPo-OMWwG50v54P-S
+  host: ec2-23-21-166-16.compute-1.amazonaws.com
   port: 5432
