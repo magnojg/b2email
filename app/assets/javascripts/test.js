@@ -3,9 +3,9 @@ $(document).ready(function() {
     event.preventDefault();
     var company = $('#companies_select').val();
     var position = $(this).val();
-    
+
     $.ajax({
-      url: '/api/v1/ad_bars',
+      url: '/api/v1/ad_bar',
       dataType: 'json',
       data: {
         company_id: company,
@@ -38,7 +38,7 @@ function jquery_snippet(url) {
   var snippet =
   "$(document).ready(function() {" +
   "  $.ajax({" +
-  "    url: '/api/v1/ad_bars', " +
+  "    url: '/api/v1/ad_bar', " +
   "    data: { ad_bar_id: ID, tk: 'TOKEN' }, " +
   "    type: 'GET', " +
   "    error: function() { " +
