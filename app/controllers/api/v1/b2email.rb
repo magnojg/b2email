@@ -23,13 +23,35 @@ module API
 
       params do
         requires :company_id, type: Integer
+      end
+      resource :login_images do
+        get "", :root => :login_images do
+          content_type 'text/plain'
+
+          company_id = params[:company_id]
+
+          campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).last
+          if campaign
+            content = {
+              campaign.login_bg_images.each do |lbi|
+                
+              end
+            }
+
+          end
+
+        end
+      end
+
+      params do
+        requires :company_id, type: Integer
         requires :position, type: String
         optional :renew_file, type: Boolean
       end
       resource :ad_bar do
 
         desc "Return all ads"
-        get "", root: :ad_bars do
+        get "", :root => :ad_bars do
           content_type 'text/plain'
 
           company_id = params[:company_id]
