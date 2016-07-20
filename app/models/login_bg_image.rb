@@ -19,7 +19,7 @@ class LoginBgImage < ActiveRecord::Base
   end
 
   Paperclip.interpolates :campaign_folder do |attachment, style|
-    "CAMP#{attachment.instance.campaign_id}"
+    "CAMP#{attachment.instance.campaign.id}"
   end
 
   # Helper method to determine whether or not an attachment is an image.

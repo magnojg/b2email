@@ -4,7 +4,7 @@ require 'uri'
 
 module API
   module V1
-    class AdBars < Grape::API
+    class B2email < Grape::API
       include API::V1::Defaults
 
       before do
@@ -26,7 +26,7 @@ module API
         requires :position, type: String
         optional :renew_file, type: Boolean
       end
-      resource :ad_bars do
+      resource :ad_bar do
 
         desc "Return all ads"
         get "", root: :ad_bars do
