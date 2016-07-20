@@ -34,7 +34,7 @@ module API
           if campaign
             content = {
               campaign.login_bg_images.each do |lbi|
-                
+                puts lbi.id
               end
             }
 
