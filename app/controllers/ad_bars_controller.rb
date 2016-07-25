@@ -102,6 +102,6 @@ class AdBarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_bar_params
-      params.require(:ad_bar).permit(:position, :campaign_id, :css_style, :css_background_color, ads_attributes: [:id, :_destroy, :image, :title, :subtitle, :url, :ad_bar_id, :sort_order])
+      params.require(:ad_bar).permit(:position, :campaign_id, :css_width, :css_height, :images_limit, :css_background_color, :space_between_images, ads_attributes: [:id, :_destroy, :image, :url, :ad_bar_id, :sort_order])
     end
 end

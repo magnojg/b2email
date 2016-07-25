@@ -16,8 +16,36 @@
   <div class="control-group">
     <%= f.label :css_background_color, :class => "control-label required" %>
     <div class="controls">
-      <%= f.text_field :css_background_color, class: 'minicolors', maxlength: 7, size: 7 %>
+      <%= f.text_field :css_background_color, class: 'minicolors', maxlength: 7 %>
       <%= errors_for(@ad_bar, :css_background_color) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :css_width, :class => "control-label required" %>
+    <div class="controls">
+      <%= f.number_field :css_width, maxlength: 4 %>
+      <%= errors_for(@ad_bar, :css_width) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :css_height, :class => "control-label required" %>
+    <div class="controls">
+      <%= f.number_field :css_height, maxlength: 4 %>
+      <%= errors_for(@ad_bar, :css_height) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :images_limit, :class => "control-label required" %>
+    <div class="controls">
+      <%= f.number_field :images_limit, maxlength: 2 %>
+      <%= errors_for(@ad_bar, :images_limit) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :space_between_images, :class => "control-label required" %>
+    <div class="controls">
+      <%= f.number_field :space_between_images, maxlength: 2 %>
+      <%= errors_for(@ad_bar, :space_between_images) %>
     </div>
   </div>
 
@@ -32,19 +60,6 @@
         <li class="first-item list-inner-normal-item">
           <div class="list-accordion-header list-inner-normal-header list-inner-horizontal-items">
             <div class="control-group">
-              <%= nested.label :title, :class => "control-label required" %>
-              <div class="controls">
-                <%= nested.cktext_area :title, :class => :editor, placeholder: true %>
-              </div>
-            </div>
-            <div class="control-group">
-              <%= nested.label :subtitle, :class => "control-label required" %>
-              <div class="controls">
-                <%= nested.cktext_area :subtitle, :class => :editor, placeholder: true %>
-              </div>
-              <br />
-            </div>
-            <div class="control-group">
               <%= nested.label :url, :class => "control-label required" %>
               <div class="controls">
                 <%= nested.url_field :url, placeholder: true %>
@@ -53,7 +68,7 @@
             <div class="control-group">
               <%= nested.label :sort_order, :class => "control-label required" %>
               <div class="controls">
-                <%= nested.number_field :sort_order, placeholder: true %>
+                <%= nested.number_field :sort_order, maxlength: 2 %>
               </div>
             </div>
             <div class="control-group">
