@@ -1,12 +1,11 @@
 <% ad_bar = this[:ad_bars] %>
+<% images_number = (ad_bar.images_limit.blank?) ? 3 : ad_bar.images_limit %>
 <div class="advertising advertising-<%= ad_bar.position %>" style="background-color: <%= ad_bar.css_background_color %>">
-	<% ad_bar.ads.order("ads.sort_order, ads.title, ads.id").each do |ad| %>
+	<% ad_bar.ads.order("RAND()").limit(images_number).each do |ad| %>
 		<div>
 			<a href="<%= ad.url %>">
 				<img src="<%= ad.image.url if ad.image.present? %>">
 			</a>
-			<!-- <span class="title"><%= ad.title %></span>
-			<span class="subtitle"><%= ad.subtitle %></span> -->
 		</div>
 	<% end %>
 </div>

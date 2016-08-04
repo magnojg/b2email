@@ -31,15 +31,16 @@ module API
           company_id = params[:company_id]
 
           campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).last
-          if campaign
-            # content = {
-            #   campaign.login_bg_images.each do |lbi|
-            #     puts lbi.id
-            #   end
-            # }
 
+          content << ""
+
+          if campaign
+            campaign.login_bg_images.each do |lbi|
+              content << "#{lbi.id}"
+            end
           end
 
+          content
         end
       end
 
@@ -82,12 +83,6 @@ module API
             else
 
               Rails.logger.info "Creating #{file_path}"
-
-              # params[:campaign_id] = campaign.id
-
-              # @ad_bars = AdBar.search(params)
-
-              # if not @ad_bars.nil?
 
               # Caso o diretório não exista, crie
               unless File.exists?(directory_name)

@@ -94,9 +94,9 @@ class AdBarsController < ApplicationController
 
       if File.exists?(directory_name)
         FileUtils.remove_dir(directory_name, true)
-        Rails.logger.info "Dir #{directory_name} removed!"
+        Rails.logger.info "Dir #{directory_name} removido!"
       else
-        Rails.logger.info "Dir #{directory_name} doesn't"
+        Rails.logger.info "Dir #{directory_name} não existe!"
       end
     end
 
