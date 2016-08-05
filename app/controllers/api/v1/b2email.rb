@@ -32,11 +32,11 @@ module API
 
           campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).last
 
-          content << ""
+          content = []
 
           if campaign
             campaign.login_bg_images.each do |lbi|
-              content << "#{lbi.id}"
+              content.push({ src: lbi.image.url })
             end
           end
 
