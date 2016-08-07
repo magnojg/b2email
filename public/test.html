@@ -2,14 +2,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.2.1/vegas.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.2.1/vegas.min.js"></script>
 <script>
-  $.get('/api/v1/login_images?company_id=1&tk=B2EMAIL', function(data) {
+$(document).ready(function() {
+  .get('/api/v1/login_images?company_id=1&tk=B2EMAIL', function(data) {
     $("body").vegas({
       slides: data,
       overlay: true,
       timer: false,
       color: '#333333'
     });
-
-    console.log(data);
   });
+});
 </script>
