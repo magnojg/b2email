@@ -27,6 +27,11 @@ module B2email
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
     config.autoload_paths += Dir[Rails.root.join('app', 'models', 'ckeditor', '*')]
+  
+    config.action_dispatch.default_headers.merge!({
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
+    })
 
     config.middleware.use(Rack::Config) do |env|
         env['api.tilt.root'] = Rails.root.join "app", "views", "api"
@@ -34,8 +39,4 @@ module B2email
       end
   end
 
-  config.action_dispatch.default_headers.merge!({
-    'Access-Control-Allow-Origin' => '*',
-    'Access-Control-Request-Method' => '*'
-  })
 end
