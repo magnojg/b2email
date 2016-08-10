@@ -33,4 +33,9 @@ module B2email
         env['api.tilt.layout'] = nil
       end
   end
+
+  config.action_dispatch.default_headers.merge!({
+    'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Request-Method' => '*'
+  })
 end
