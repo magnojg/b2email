@@ -198,6 +198,7 @@ GEM
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-cors (0.3.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -322,6 +323,7 @@ DEPENDENCIES
   pry-rails
   pry-rescue
   quiet_assets
+  rack-cors (= 0.3.0)
   rails (= 4.2.5.1)
   rails-breadcrumbs
   rails_12factor
