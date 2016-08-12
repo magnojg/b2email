@@ -2,12 +2,12 @@ class AdBar < ActiveRecord::Base
   belongs_to :campaign, :class_name => Campaign.model_name, :foreign_key => :campaign_id
   has_one :company, :through => :campaign
 
-  enum positions: [ :left, :right ] 
+  enum positions: [ :left, :right ]
 
   has_many :ads, :dependent => :destroy
   accepts_nested_attributes_for :ads,
                                 :allow_destroy => true,
-                                reject_if: proc { |attributes| attributes['title'].blank? || attributes['image'].blank? }
+                                reject_if: proc { |attributes| attributes['image'].blank? }
 
   def self.search(params)
 
