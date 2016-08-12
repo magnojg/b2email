@@ -80,7 +80,6 @@ class AdBarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ad_bar
       @ad_bar = AdBar.find(params[:id])
-      @ad_bar.ads.build
     end
 
     def set_campaigns
