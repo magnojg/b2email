@@ -1,5 +1,5 @@
 <% ad_bar = this[:ad_bars] %>
-<% images_number = (ad_bar.images_limit.blank?) ? 3 : ad_bar.images_limit %>
+<% images_number = (ad_bar.images_limit.blank? || ad_bar.images_limit == 0) ? 3 : ad_bar.images_limit %>
 <div class="advertising advertising-<%= ad_bar.position %>" style="background-color: <%= ad_bar.css_background_color %>">
 	<% ad_bar.ads.order("RAND()").limit(images_number).each do |ad| %>
 		<div>
