@@ -40,7 +40,10 @@ module API
             end
           end
 
-          content
+          {
+            content: content,
+            title: campaign.company.name
+          }
         end
       end
 
@@ -73,13 +76,7 @@ module API
 
             # Caso exista cache, apenas mostra
             if File.exist?(file_path) and (not renew_file)
-
-              file = File.read(file_path)
-              {
-                position: position,
-                content: file.html_safe,
-                is_cache: true
-              }
+              is_cache = true
             else
 
               Rails.logger.info "Creating #{file_path}"
@@ -101,14 +98,16 @@ module API
                 Rails.logger.info "#{file_path} created!"
               end
 
-              file = File.read(file_path)
-
-              {
-                position: position,
-                content: file.html_safe,
-                is_cache: false
-              }
+              is_cache = false
             end
+
+            file = File.read(file_path)
+            {
+              position: position,
+              content: file.html_safe,
+              title: campaign.company.name,
+              is_cache: is_cache
+            }
           end
         end
       end
