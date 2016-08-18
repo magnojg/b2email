@@ -96,6 +96,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :bucket => 'webmail-ad-content',
-    :s3_region => 'sa-east-1'
+    :s3_region => 'sa-east-1',
+    :s3_protocol => :https
   }
 end
