@@ -3,12 +3,12 @@
 <% css_background_color = (ad_bar.css_background_color.blank?) ? "" : ad_bar.css_background_color %>
 <% css_width = (ad_bar.css_width.blank? || ad_bar.css_width == 0) ? "" : "width:#{ad_bar.css_width};" %>
 <% css_height = (ad_bar.css_height.blank? || ad_bar.css_height == 0) ? "" : "height:#{ad_bar.css_height};" %>
-<div class="advertising advertising-<%= ad_bar.position %>" style="display:block;margin:auto;<%= "#{css_background_color}#{css_width}#{css_height}" %>">
+<div class="advertising advertising-<%= ad_bar.position %>" style="<%= "#{css_background_color}#{css_width}#{css_height}" %>">
 	<% margin_bottom = (ad_bar.space_between_images.blank?)? "" : "style='margin-bottom: #{ad_bar.space_between_images}px;'" %>
 	<% ad_bar.ads.order("RANDOM()").limit(images_number).each do |ad| %>
 		<div <%= margin_bottom %>>
 			<a href="<%= ad.url %>" target="_blank">
-				<img src="<%= ad.image.url if ad.image.present? %>">
+				<img src="<%= ad.image.url if ad.image.present? %>" style="display:block;margin:auto;">
 			</a>
 		</div>
 	<% end %>
