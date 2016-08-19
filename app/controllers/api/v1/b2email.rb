@@ -79,7 +79,7 @@ module API
               is_cache = true
             else
               is_cache = false
-              
+
               Rails.logger.info "Creating #{file_path}"
 
               # Caso o diretório não exista, crie
@@ -103,7 +103,7 @@ module API
             file = File.read(file_path)
             {
               position: position,
-              content: file.html_safe,
+              content: file.gsub(/\n\t/, '<br/>').html_safe,
               title: campaign.company.name,
               is_cache: is_cache
             }

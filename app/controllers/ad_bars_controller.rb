@@ -91,7 +91,14 @@ class AdBarsController < ApplicationController
     def remove_dir
       directory_name = Rails.root.join("public/COMP#{@ad_bar.campaign.company_id}")
 
-      if File.exists?(directory_name)
+      p "====================================="
+      p "====================================="
+      p "====================================="
+      p "====================================="
+      p "====================================="
+      p "#{directory_name}"
+
+      if File.directory?(directory_name)
         FileUtils.remove_dir(directory_name, true)
         Rails.logger.info "Dir #{directory_name} removido!"
       else
