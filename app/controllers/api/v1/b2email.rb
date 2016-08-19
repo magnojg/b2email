@@ -83,7 +83,7 @@ module API
               Rails.logger.info "Creating #{file_path}"
 
               # Caso o diretório não exista, crie
-              unless File.exists?(directory_name)
+              unless Dir.exists?(directory_name)
 
                 Dir.mkdir(directory_name)
                 Rails.logger.info "Dir #{directory_name} created!"
