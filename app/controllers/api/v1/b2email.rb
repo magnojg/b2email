@@ -65,10 +65,13 @@ module API
           renew_file ||= false
 
           error_msg = nil
-          campaign = Campaign.where(company_id: company_id).order(:id => :desc).last
+          campaign = Campaign.where(company_id: company_id).order(:id => :desc).first
+
+          Rails.logger.info "Campanha: #{campaign.id}"
 
           if campaign
-            ad_bar = campaign.ad_bars.where(position: position).order(:id => :desc).last
+            ad_bar = campaign.ad_bars.where(position: position).order(:id => :desc).first
+            Rails.logger.info "Ad Bar: #{ad_bar.id}"
 
             directory_name = "public/COMP#{company_id}"
             position = ad_bar.position
