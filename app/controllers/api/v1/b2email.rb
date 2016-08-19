@@ -65,10 +65,10 @@ module API
           renew_file ||= false
 
           error_msg = nil
-          campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).last
+          campaign = Campaign.where(company_id: company_id).order(:id => :desc).last
 
           if campaign
-            ad_bar = campaign.ad_bars.where(position: position).order(:created_at => :desc).last
+            ad_bar = campaign.ad_bars.where(position: position).order(:id => :desc).last
 
             directory_name = "public/COMP#{company_id}"
             position = ad_bar.position
@@ -78,7 +78,8 @@ module API
             if File.exist?(file_path) and (not renew_file)
               is_cache = true
             else
-
+              is_cache = false
+              
               Rails.logger.info "Creating #{file_path}"
 
               # Caso o diretório não exista, crie
@@ -97,8 +98,6 @@ module API
                 file.write template.render(ad_bars: ad_bar)
                 Rails.logger.info "#{file_path} created!"
               end
-
-              is_cache = false
             end
 
             file = File.read(file_path)
