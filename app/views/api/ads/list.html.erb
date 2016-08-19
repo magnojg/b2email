@@ -1,7 +1,7 @@
 <% ad_bar = this[:ad_bars] %>
 <% images_number = (ad_bar.images_limit.blank? || ad_bar.images_limit == 0) ? 3 : ad_bar.images_limit %>
-<% css_width = (ad_bar.css_width.blank? || ad_bar.css_width == 0) "" : "width:#{ad_bar.css_width};" %>
-<% css_height = (ad_bar.css_height.blank? || ad_bar.css_height == 0) "" : "height:#{ad_bar.css_height};" %>
+<% css_width = (ad_bar.css_width.blank? || ad_bar.css_width == 0) ? "" : "width:#{ad_bar.css_width};" %>
+<% css_height = (ad_bar.css_height.blank? || ad_bar.css_height == 0) ? "" : "height:#{ad_bar.css_height};" %>
 <div class="advertising advertising-<%= ad_bar.position %>" style="background-color:<%= "#{ad_bar.css_background_color}#{css_width}#{css_height}" %>">
 	<% margin_bottom = (ad_bar.space_between_images.blank?)? "" : "style='margin-bottom: #{ad_bar.space_between_images}px;'" %>
 	<% ad_bar.ads.order("RANDOM()").limit(images_number).each do |ad| %>
