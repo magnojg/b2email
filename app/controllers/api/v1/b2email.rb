@@ -103,7 +103,7 @@ module API
             file = File.read(file_path)
             {
               position: position,
-              content: file.gsub(/\n\t/, '<br/>').html_safe,
+              content: file.gsub(/\n+\t+/, '').html_safe,
               title: campaign.company.name,
               is_cache: is_cache
             }
