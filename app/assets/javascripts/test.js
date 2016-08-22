@@ -10,7 +10,8 @@ $(document).ready(function() {
       data: {
         company_id: company,
         position: position,
-        tk: 'B2EMAIL'
+        tk: 'B2EMAIL',
+        renew_file: true
       },
       type: 'GET',
       beforeSend: function (jqXHR, settings) {
