@@ -30,7 +30,7 @@ module API
 
           company_id = params[:company_id]
 
-          campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).last
+          campaign = Campaign.where(company_id: company_id).order(:created_at => :desc).first
 
           content = []
 

@@ -109,6 +109,6 @@ class CampaignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def campaign_params
-      params.require(:campaign).permit(:title, :start_at, :end_at, :company_id, login_bg_images_attributes: [:id, :_destroy, :image, :campaign_id, :sort_order])
+      params.require(:campaign).permit(:title, :start_at, :end_at, :company_id, :css_bgcolor_login_box, login_bg_images_attributes: [:id, :_destroy, :image, :campaign_id, :sort_order])
     end
 end

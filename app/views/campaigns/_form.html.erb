@@ -24,6 +24,13 @@
       <%= f.select :company_id, @companies, :class => 'text_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :css_bgcolor_login_box, :class => "control-label required" %>
+    <div class="controls">
+      <%= f.text_field :css_bgcolor_login_box, class: 'minicolors', maxlength: 7 %>
+      <%= errors_for(@ad_bar, :css_bgcolor_login_box) %>
+    </div>
+  </div>
   <div class="nested-first fields-content-inner no-padding">
     <ol class="first-items list-inner-normal">
       <header class="form-fields-header">
@@ -61,3 +68,9 @@
 <% content_for :scripts do %>
   <%= javascript_include_tag "plugins/validate/jquery.validate", "plugins/validate/jquery.validate.pt-br" %>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $('.minicolors').minicolors();
+  });
+</script>

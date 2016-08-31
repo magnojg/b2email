@@ -27,6 +27,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :logo_image, :class => "control-label" %>
+    <div class="controls">
+      <%= nested.file_field :logo_image, placeholder: true, class: 'file_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :address, :class => "control-label" %>
     <div class="controls">
       <%= f.text_area :address, :class => "text_area span4", :rows => "8" %>

@@ -11,100 +11,108 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718180622) do
+ActiveRecord::Schema.define(version: 20160831232649) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ad_bars", force: :cascade do |t|
-    t.string   "position",             limit: 255
-    t.integer  "css_width",            limit: 4,   default: 0
-    t.integer  "css_height",           limit: 4,   default: 0
-    t.integer  "images_limit",         limit: 4,   default: 0
-    t.string   "css_background_color", limit: 255
-    t.integer  "space_between_images", limit: 4,   default: 0
-    t.integer  "campaign_id",          limit: 4
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.string   "position"
+    t.integer  "css_width",            default: 0
+    t.integer  "css_height",           default: 0
+    t.integer  "images_limit",         default: 0
+    t.string   "css_background_color"
+    t.integer  "space_between_images", default: 0
+    t.integer  "campaign_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "ad_bars", ["campaign_id"], name: "index_ad_bars_on_campaign_id", using: :btree
 
   create_table "ads", force: :cascade do |t|
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.text     "title",              limit: 65535
-    t.text     "subtitle",           limit: 65535
-    t.text     "url",                limit: 65535
-    t.integer  "sort_order",         limit: 4
-    t.string   "dimensions",         limit: 255
-    t.integer  "ad_bar_id",          limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.text     "title"
+    t.text     "subtitle"
+    t.text     "url"
+    t.integer  "sort_order"
+    t.string   "dimensions"
+    t.integer  "ad_bar_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "ads", ["ad_bar_id"], name: "index_ads_on_ad_bar_id", using: :btree
 
   create_table "campaigns", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.integer  "company_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "company_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "css_bgcolor_login_box"
   end
 
   add_index "campaigns", ["company_id"], name: "index_campaigns_on_company_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name",                limit: 255
-    t.string   "trading_name",        limit: 255
-    t.string   "registration_number", limit: 255
-    t.text     "address",             limit: 65535
-    t.text     "domain_url",          limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.string   "name"
+    t.string   "trading_name"
+    t.string   "registration_number"
+    t.text     "address"
+    t.text     "domain_url"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "logo_image_file_name"
+    t.string   "logo_image_content_type"
+    t.integer  "logo_image_file_size"
+    t.datetime "logo_image_updated_at"
   end
 
   create_table "login_bg_images", force: :cascade do |t|
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "dimensions",         limit: 255
-    t.integer  "sort_order",         limit: 4
-    t.integer  "campaign_id",        limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "dimensions"
+    t.integer  "sort_order"
+    t.integer  "campaign_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "login_bg_images", ["campaign_id"], name: "index_login_bg_images_on_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.string   "name",                   limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "name"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "invitation_token",       limit: 255
+    t.string   "unconfirmed_email"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
-    t.integer  "invitation_limit",       limit: 4
-    t.integer  "invited_by_id",          limit: 4
-    t.string   "invited_by_type",        limit: 255
-    t.integer  "invitations_count",      limit: 4,   default: 0
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.integer  "invitations_count",      default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
