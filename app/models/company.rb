@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
 										:path => '/:company_folder/:id.:style.:filename',
                     :url => ":s3_domain_url"
 
-  validates_attachment :image,
+  validates_attachment :logo_image,
 												content_type: { content_type: /\Aimage\/.*\Z/ },
 												size: { in: 0..1.megabytes }
 
