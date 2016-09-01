@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
                     :url => ":s3_domain_url"
 
   before_save :extract_dimensions
-  serialize :dimensions
+  serialize :logo_dimensions
 
   validates_attachment :logo_image,
 												content_type: { content_type: /\Aimage\/.*\Z/ },
@@ -32,7 +32,7 @@ class Company < ActiveRecord::Base
     tempfile = image.queued_for_write[:original]
     unless tempfile.nil?
       geometry = Paperclip::Geometry.from_file(tempfile)
-      self.dimensions = [geometry.width.to_i, geometry.height.to_i].join('x')
+      self.logo_dimensions = [geometry.width.to_i, geometry.height.to_i].join('x')
     end
   end
 end
