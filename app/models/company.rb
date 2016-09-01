@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  has_many :campaigns, :dependent => :destroy
+  has_many :campaigns
 
   has_attached_file :logo_image,
 										:default_url => "null",
