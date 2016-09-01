@@ -103,6 +103,17 @@ module API
               end
             end
 
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts campaign.company.logo_image.url
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
+
+
             file = File.read(file_path)
             {
               position: position,
