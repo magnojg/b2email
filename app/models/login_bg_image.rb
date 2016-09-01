@@ -3,8 +3,8 @@ class LoginBgImage < ActiveRecord::Base
   belongs_to :campaign
 
   has_attached_file :image,
-										:default_url => '/missing.png',
-										:path => '/:company_folder/:campaign_folder/:id.:style.:filename',
+										:default_url => "/missing.png",
+										:path => "/:company_folder/:campaign_folder/:id.:style.:filename",
                     :url => ":s3_domain_url"
 
   before_save :extract_dimensions
