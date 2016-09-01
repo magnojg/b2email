@@ -13,9 +13,9 @@ class Company < ActiveRecord::Base
 												content_type: { content_type: /\Aimage\/.*\Z/ },
 												size: { in: 0..1.megabytes }
 
-  Paperclip.interpolates :company_folder do |attachment, style|
-    "COMP#{attachment.instance.id}"
-  end
+  # Paperclip.interpolates :company_folder do |attachment, style|
+  #   "COMP#{attachment.instance.id}"
+  # end
 
   # Helper method to determine whether or not an attachment is an image.
   # @note Use only if you have a generic asset-type model that can handle different file types.
