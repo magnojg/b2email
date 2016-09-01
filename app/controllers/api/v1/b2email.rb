@@ -108,6 +108,7 @@ module API
               position: position,
               content: file.gsub(/\n+\t+/, '').html_safe,
               title: campaign.company.name,
+              logo_image: company.logo_image.url,
               is_cache: is_cache
             }
           end
