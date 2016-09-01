@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
   has_many :campaigns, :dependent => :destroy
 
   has_attached_file :logo_image,
-										:default_url => ":s3_domain_url/missing.png",
+										:default_url => "null",
 										:path => "/:company_folder/:id.:style.:filename",
                     :url => ":s3_domain_url"
 
