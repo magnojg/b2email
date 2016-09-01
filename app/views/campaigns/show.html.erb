@@ -16,6 +16,14 @@
     <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
     <dd><%= @campaign.company.trading_name %></dd>
   </dl>
+  <dl class="control-group">
+    <dt><strong><%= model_class.human_attribute_name(:css_background_color) %>:</strong></dt>
+    <dd>
+      <svg width="25" height="25">
+        <rect width="25" height="25" style="fill:<%= @campaign.css_bgcolor_login_box %>" />
+      </svg>&nbsp;<%= @campaign.css_bgcolor_login_box %>
+    </dd>
+  </dl>
   <% if @campaign.login_bg_images.any? %>
     <dl class="control-group">
       <table class="footable table table-striped table-bordered">

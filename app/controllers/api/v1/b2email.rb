@@ -42,7 +42,8 @@ module API
 
           {
             content: content,
-            title: campaign.company.name
+            title: campaign.company.name,
+            bgcolor_login_box: campaign.css_bgcolor_login_box
           }
         end
       end
@@ -102,18 +103,6 @@ module API
                 Rails.logger.info "#{file_path} created!"
               end
             end
-
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts campaign.company.logo_image.url
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-            puts "MAGNO MAGNO MAGNO MAGNO MAGNO"
-
-
             file = File.read(file_path)
             {
               position: position,
