@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
 
   has_attached_file :logo_image,
 										:default_url => "null",
-										:path => "/:company_folder/:id.:style.:filename",
+										:path => "/:id.:style.:filename",
                     :url => ":s3_domain_url"
 
   before_save :extract_dimensions

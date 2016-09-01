@@ -13,7 +13,7 @@
         <dd><%= @company.registration_number %></dd>
     </dl>
     <dl class="control-group">
-        <dt><strong><%= model_class.human_attribute_name(:registration_number) %>:</strong></dt>
+        <dt><strong><%= model_class.human_attribute_name(:logo_dimensions) %>:</strong></dt>
         <dd><%= image_tag @company.logo_image.url %><%= "(#{@company.logo_dimensions})" unless @company.logo_dimensions.blank? %></dd>
     </dl>
     <dl class="control-group">
